@@ -30,13 +30,26 @@ head(crime)
 We have quite a few variables. Let's take this step by step. First, let's plot the variables that are likely to have a wide-spread, since we may have to log-transform those later. Let's take a look at land area, total population, and total serious crimes by county.
 
 ```{r}
+par(mfrow=c(3,1))
+
 # Land Area Plot
 land_df <- crime[order(crime$`Land Area`), ]
 
 barplot(land_df$`Land Area`, names.arg = land_df$`County Name`, xlab = "County", ylab = "Land Area in Sq. Miles", main = "Land Area for each County")
 
-# 
+# Total Population Plot
+pop_df <- crime[order(crime$`Total Pop.`), ]
+
+barplot(pop_df$`Total Pop.`, names.arg = pop_df$`County Name`, xlab = "County", ylab = "Total Population", main = "Total 1990 Population for each County")
+
+# Total Serious Crimes
+crime_df <- crime[order(crime$`Total Serious Crimes`), ]
+
+barplot(crime_df$`Total Serious Crimes`, names.arg = crime_df$`County Name`, xlab = "County", ylab = "Total Serious Crimes", main = "Total 1990 Serious Crimes for each County")
 ```
+
+As expected, all of these variables have an enormous spread spanning multiple orders of magnitude. In order to use these in regression models later, they'll have to be log-transformed.
+
 
 
 
