@@ -1,0 +1,49 @@
+---
+title: Exploratory Data Analysis on County Crime Dataset for Advanced Data Analysis
+author: "Amir Idris"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+First, let's load the data.
+
+```{r}
+crime <- read.table("APPENC02.txt", sep="", header=FALSE)
+UNI <- 2244
+set.seed(UNI)
+index <- sample(c(1:440))
+crime <- crime[index[1:250],]
+
+summary(crime)
+```
+
+Let's rename the columns to make it easier for ourselves
+```{r}
+
+column.names <- c("Id", "County Name", "State", "Land Area", "Total Pop.", "Percent of Pop. Age 18-34", "Percent of Pop. Age >= 65", "Num of Active Physicians", "Num of Hospital Beds", "Total Serious Crimes", "Percent High School Graduates", "Percent Bachelor's Degree", "Percent Below Poverty Level", "Percent Unemployment", "Per Capita Income", "Total personal income", "Geographic Region")
+
+colnames(crime) <- column.names
+head(crime)
+```
+
+We have quite a few variables. Let's take this step by step. First, let's plot the variables that are likely to have a wide-spread, since we may have to log-transform those later. Let's take a look at land area, total population, and total serious crimes by county.
+
+```{r}
+# Land Area Plot
+land_df <- crime[order(crime$`Land Area`), ]
+
+barplot(land_df$`Land Area`, names.arg = land_df$`County Name`, xlab = "County", ylab = "Land Area in Sq. Miles", main = "Land Area for each County")
+
+# 
+```
+
+
+
+
+
+
+
+
+
+
