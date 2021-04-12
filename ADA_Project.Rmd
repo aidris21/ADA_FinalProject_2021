@@ -1,0 +1,155 @@
+---
+title: "ADA Final"
+author: "Sophie Bair"
+date: "4/8/2021"
+output: pdf_document
+---
+
+Significant
+* Land area: larger in West 
+* Number of hospital beds per capita: lower in west, makes sense
+* Number of serious crimes per capita: higher in south, Lowest in NE 
+* Percent high school graduates: lowest in south
+* Percent below poverty level: highest in south and west, lowest in NE
+* Per capita income: highest in NE 
+* Personal income: “
+Almost significant
+* Percent unemployment
+
+```{r}
+data<-read.table("/Users/seb2244/Downloads/APPENC02.txt", sep="", header=FALSE)
+UNI<-2244
+set.seed(UNI)
+index <-sample(c(1:440))
+mydata<-data[index[1:250],]
+head(mydata)
+```
+
+```{r}
+write.csv(mydata, "/Users/seb2244/Downloads/ada_project_df.csv")
+```
+
+```{r}
+ne <- mydata[mydata$V17 == 1, ]
+nc <- mydata[mydata$V17 == 2, ]
+s <- mydata[mydata$V17 == 3, ]
+w <- mydata[mydata$V17 == 4, ]
+nrow(ne)
+nrow(nc)
+nrow(s)
+nrow(w)
+```
+
+```{r}
+unique(w$V2) # 52 counties in new england
+# 62 counties in nc
+# 84 in s
+# 43 in w
+```
+```{r}
+boxplot(log(V4)~V17, data = mydata)$stats # west has large land area
+```
+```{r}
+summary(aov(log(V4)~factor(V17), data = mydata))
+```
+```{r}
+# test assumptions 
+#hist(mydata$V4, breaks = 50) # not normal! 
+hist(mydata$V4, breaks = 50) # not normal! 
+
+```
+
+```{r}
+library(car)
+leveneTest(V4~factor(V17), data = mydata) # not equal variance either, prob better to use k-w instead
+```
+
+```{r}
+kruskal.test(V4~factor(V17), data = mydata) # still significant
+```
+
+```{r}
+#boxplot(V5~V17, data = mydata)
+boxplot(V5~V17, data = mydata)$stats # ne has large population
+```
+```{r}
+summary(aov(V5~factor(V17), data = mydata)) # pop not significant
+```
+
+
+```{r}
+boxplot(V6~V17, data = mydata)$stats # pretty consistent percent young
+```
+```{r}
+summary(aov(V6~factor(V17), data = mydata)) # younger pop not significant
+```
+
+```{r}
+boxplot(V7~V17, data = mydata)$stats # slightly higher older pop in ne
+```
+```{r}
+summary(aov(V7~factor(V17), data = mydata)) # older pop not significant
+```
+
+```{r}
+mydata$doctors_per_cap = mydata$V8/mydata$V5
+boxplot(doctors_per_cap~V17, data = mydata)$stats # slightly higher number of doctors in ne? 
+```
+```{r}
+summary(aov(doctors_per_cap~factor(V17), data = mydata)) # doctors per cap not significant
+```
+
+```{r}
+boxplot(V9/V5~V17, data = mydata)$stats # pretty different between regions
+```
+```{r}
+summary(aov(V9/V5~factor(V17), data = mydata)) # number of hospital beds per capita is significant
+```
+
+```{r}
+boxplot(V10/V5~V17, data = mydata)$stats # very different between regions
+```
+```{r}
+summary(aov(V10/V5~factor(V17), data = mydata)) # number of crimes per capita is significant
+```
+```{r}
+boxplot(V11~V17, data = mydata)$stats # pretty different between regions
+```
+```{r}
+summary(aov(V11~factor(V17), data = mydata)) # looks like south has significantly lower high school education rates 
+```
+
+```{r}
+# could probably bin some of these 
+boxplot(V12~V17, data = mydata)$stats # ne and w have high education levels
+```
+```{r}
+summary(aov(V12~factor(V17), data = mydata)) # but college grads not significant
+```
+
+```{r}
+boxplot(V13~V17, data = mydata)$stats # poverty level also very characteristic, could see if correlates with education 
+```
+```{r}
+summary(aov(V13~factor(V17), data = mydata)) # older pop not significant
+```
+
+
+```{r}
+boxplot(V14~V17, data = mydata)$stats # percent unemployment almost significant
+
+summary(aov(V14~factor(V17), data = mydata)) 
+```
+
+```{r}
+boxplot(V15~V17, data = mydata)$stats # per capita income is significant
+
+summary(aov(V15~factor(V17), data = mydata)) 
+```
+
+
+```{r}
+boxplot(V16~V17, data = mydata)$stats # personal income is significant
+
+summary(aov(V15~factor(V17), data = mydata)) 
+```
