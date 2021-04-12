@@ -60,15 +60,15 @@ Now, before we move on to modeling, let's take a look at how some of the variabl
 # Select variables
 selected_data <- subset(crime, select = -c(Id, `County Name`, State,`Land Area`, `Total Pop.`, `Total Serious Crimes`))
 d <- dim(selected_data)[2]
-par(mfrow=c(round(sqrt(d)), round(sqrt(d))))
-region <- crime$`Geographic Region`
+par(mfrow=c(ceiling(sqrt(d)), ceiling(sqrt(d))))
+#crime$`Geographic Region` <- as.factor(crime$`Geographic Region`)
 
-for(i in 1:d-1){
+for(i in 1:(d-1)){
   #title_string <- paste("Box and Whisker of ", colnames(selected_data)[i], " by Region", sep = "")
   #formula_string <- paste("Geographic Region ~ ", colnames(selected_data)[i], sep = "")
   #plot_formula <- as.formula(formula_string)
   
-  boxplot(region ~ selected_data[, i], data=selected_data, main=title_string,
+  boxplot(selected_data[, i] ~ `Geographic Region`, data = selected_data, main=title_string,
    xlab="Geographic Region", ylab=colnames(selected_data)[i])
 }
 ```
