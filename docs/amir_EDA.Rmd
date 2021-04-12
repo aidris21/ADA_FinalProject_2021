@@ -5,11 +5,15 @@ output:
   pdf_document: default
   html_notebook: default
 ---
+```{r}
+library(dplyr)
+```
+
 
 First, let's load the data.
 
 ```{r}
-crime <- read.table("APPENC02.txt", sep="", header=FALSE)
+crime <- read.table("../data/APPENC02.txt", sep="", header=FALSE)
 UNI <- 2244
 set.seed(UNI)
 index <- sample(c(1:440))
@@ -49,6 +53,26 @@ barplot(crime_df$`Total Serious Crimes`, names.arg = crime_df$`County Name`, xla
 ```
 
 As expected, all of these variables have an enormous spread spanning multiple orders of magnitude. In order to use these in regression models later, they'll have to be log-transformed.
+
+
+Now, before we move on to modeling, let's take a look at how some of the variables differ by region. 
+```{r}
+# Select variables
+selected_data <- subset(crime, select = -c(Id, `County Name`, State,`Land Area`, `Total Pop.`, `Total Serious Crimes`))
+d <- dim(selected_data)[2]
+par(mfrow=c(round(sqrt(d)), round(sqrt(d))))
+region <- crime$`Geographic Region`
+
+for(i in 1:d-1){
+  #title_string <- paste("Box and Whisker of ", colnames(selected_data)[i], " by Region", sep = "")
+  #formula_string <- paste("Geographic Region ~ ", colnames(selected_data)[i], sep = "")
+  #plot_formula <- as.formula(formula_string)
+  
+  boxplot(region ~ selected_data[, i], data=selected_data, main=title_string,
+   xlab="Geographic Region", ylab=colnames(selected_data)[i])
+}
+```
+
 
 
 
