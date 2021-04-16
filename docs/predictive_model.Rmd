@@ -1,0 +1,130 @@
+---
+title: Polytomous Logistic Regression Model to Predict Region in County Crime Dataset
+author: "Amir Idris"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+```{r}
+if (!require("dplyr")){
+  install.packages("dplyr")
+}
+
+if (!require("nnet")){
+  install.packages("nnet")
+}
+
+library(dplyr)
+library(nnet)
+```
+
+
+First, let's load the data.
+
+```{r}
+crime <- read.table("../data/APPENC02.txt", sep="", header=FALSE)
+UNI <- 2244
+set.seed(UNI)
+index <- sample(c(1:440))
+crime <- crime[index[1:250],]
+
+# Rename column names to reflect meaning
+column.names <- c("Id", "County Name", "State", "Land Area", "Total Pop.", "Percent of Pop. Age 18-34", "Percent of Pop. Age >= 65", "Num of Active Physicians", "Num of Hospital Beds", "Total Serious Crimes", "Percent High School Graduates", "Percent Bachelor's Degree", "Percent Below Poverty Level", "Percent Unemployment", "Per Capita Income", "Total personal income", "Geographic Region")
+
+colnames(crime) <- column.names
+
+# Add crimes per person as column
+crimes_per_person <- crime$`Total Serious Crimes`/crime$`Total Pop.`
+crime <- as.data.frame(cbind(crime, crimes_per_person))
+
+crime$`Geographic Region` <- as.factor(crime$`Geographic Region`) #Ensure our outcome variable is treated as a factor variable
+with(crime, levels(`Geographic Region`))
+
+head(crime)
+```
+
+As found in our ANOVA tests, the following predictors have significant or near-significant differences between regions, at an alpha-level of 0.05. So, we can use these in our model.
+
+<b> Significant </b>
+* Land area: larger in West 
+* Number of hospital beds per capita: lower in west, makes sense
+* Number of serious crimes per capita: higher in south, Lowest in NE 
+* Percent high school graduates: lowest in south
+* Percent below poverty level: highest in south and west, lowest in NE
+* Per capita income: highest in NE 
+* Personal income: “
+<b> Almost significant </b>
+* Percent unemployment
+
+Next, lets split the data into training and testing, and 80/20 split.
+
+```{r}
+# Credit to https://stackoverflow.com/questions/17200114/how-to-split-data-into-training-testing-sets-using-sample-function
+train_index <- sample.int(n = nrow(crime), size = floor(.80*nrow(crime)), replace = F)
+train_crime <- crime[train_index, ]
+test_crime  <- crime[-train_index, ]
+
+print(dim(train_crime))
+print(dim(test_crime))
+```
+
+Now let's fit our Logistic Regression Model
+
+```{r}
+mod0 <- multinom(`Geographic Region` ~ `Land Area` + `Num of Hospital Beds` + crimes_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Per Capita Income` + `Percent Unemployment`, data = train_crime)
+summary(mod0)
+```
+
+
+Let's see if we can judge the accuracy of this model on the training and testing datasets
+
+```{r}
+# Credit to https://datasciencebeginners.com/2018/12/20/multinomial-logistic-regression-using-r/
+
+# Predicting the values for train dataset
+train_crime$predicted <- predict(mod0, newdata = train_crime, "class")
+
+# Building classification table
+ctable_train <- table(train_crime$`Geographic Region`, train_crime$predicted)
+
+# Calculating accuracy - sum of diagonal elements divided by total obs
+train_acc <- round((sum(diag(ctable_train))/sum(ctable_train))*100,4)
+
+
+# Predicting the values for test dataset
+test_crime$predicted <- predict(mod0, newdata = test_crime, "class")
+
+# Building classification table
+ctable_test <- table(test_crime$`Geographic Region`, test_crime$predicted)
+
+# Calculating accuracy - sum of diagonal elements divided by total obs
+test_acc <- round((sum(diag(ctable_test))/sum(ctable_test))*100,4)
+
+print(paste("Training Accuracy: ", train_acc, "%", sep=""))
+print(paste("Testing Accuracy: ", test_acc, "%", sep=""))
+```
+
+While our accuracy is not incredibly high, we are performing much better than random, which with 4 categories would be 25%. Let's see which of our coefficients are significant.
+
+```{r}
+# Credit to https://stats.idre.ucla.edu/r/dae/multinomial-logistic-regression/
+
+z <- summary(mod0)$coefficients/summary(mod0)$standard.errors
+p <- (1 - pnorm(abs(z), 0, 1)) * 2 #testing if B_i = 0 vs. B_i /= 0
+p
+```
+
+
+
+We can see that there are only three coefficients that are not significant at an alpha-level of 0.05: num of hospital beds for level 2, percent of high school graduates for level 3, and per capita income for level 4. Since these coefficients are in comparison to our baseline level of the Northeast, then this tells us that these features in these regions do not differ significantly from the northeast in our data according to our model.
+
+
+
+
+
+
+
+
+
+
+
