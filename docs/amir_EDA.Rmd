@@ -60,7 +60,7 @@ Now, before we move on to modeling, let's take a look at how some of the variabl
 # Select variables
 selected_data <- subset(crime, select = -c(Id, `County Name`, State,`Land Area`, `Total Pop.`, `Total Serious Crimes`))
 d <- dim(selected_data)[2]
-par(mfrow=c(ceiling(sqrt(d)), ceiling(sqrt(d))))
+#par(mfrow=c(ceiling(sqrt(d)), ceiling(sqrt(d))))
 #crime$`Geographic Region` <- as.factor(crime$`Geographic Region`)
 
 for(i in 1:(d-1)){
