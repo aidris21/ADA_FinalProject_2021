@@ -42,6 +42,14 @@ with(crime, levels(`Geographic Region`))
 
 head(crime)
 ```
+```{r}
+# Plot crime per person
+crime_pop <- crime[order(crime$crimes_per_person), ]
+
+barplot(crime_pop$crimes_per_person, names.arg = crime_pop$`County Name`, xlab = "County", ylab = "Crimes Per Person", main = "Crimes Per Person for each County")
+```
+Now we can see we no longer need to log-transform total crime and population
+
 
 As found in our ANOVA tests, the following predictors have significant or near-significant differences between regions, at an alpha-level of 0.05. So, we can use these in our model.
 
@@ -68,10 +76,10 @@ print(dim(train_crime))
 print(dim(test_crime))
 ```
 
-Now let's fit our Logistic Regression Model
+Now let's fit our Logistic Regression Model, log-transforming the variables that are exponentially-distributed.
 
 ```{r}
-mod0 <- multinom(`Geographic Region` ~ `Land Area` + `Num of Hospital Beds` + crimes_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Per Capita Income` + `Percent Unemployment`, data = train_crime)
+mod0 <- multinom(`Geographic Region` ~ log(`Land Area`) + `Num of Hospital Beds` + crimes_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Per Capita Income` + `Percent Unemployment`, data = train_crime)
 summary(mod0)
 ```
 
@@ -118,7 +126,36 @@ p
 
 We can see that there are only three coefficients that are not significant at an alpha-level of 0.05: num of hospital beds for level 2, percent of high school graduates for level 3, and per capita income for level 4. Since these coefficients are in comparison to our baseline level of the Northeast, then this tells us that these features in these regions do not differ significantly from the northeast in our data according to our model.
 
+Last thing we should do is view the exponentiated coefficients, and see what we can interpret from them:
 
+```{r}
+exp_coefs <- exp(summary(mod0)$coefficients)
+exp_coefs
+```
+
+This is very interesting to see. Although many of our coefficients were significant, many of there effects are extremely close to 1. As a reminder, the interpretation of a given coefficient Blj is that assuming that a region is either NE or region l, if we increase x_j by 1 and hold all other features fixed, the odds that the outcome is region j increases by a multiplicative factor of B_lj. Therefore, if B_lj is close to 1, the odds will not change by a large amount in response to a change in x_j.
+
+From this, we see that for Number of Hospital Beds, and Per Capita Income, all of these variables seem nearly inconsequential. Land Area, Percent High School Graduates, Percent Below Poverty Level, and Percent Unemployment are slightly more important. But crimes per person has tens of orders of magnitude more importance than all of the other variables, to the extent that the odds seem entirely determined by this feature.
+
+
+Let's do some Likelihood ratio tests to gauge the collective relevance of certain variables in our model. First, let's test a model only using crimes_per_person vs. using all other variables
+```{r}
+mod_red <- multinom(`Geographic Region` ~ crimes_per_person, data = train_crime)
+summary(mod_red)
+
+#LRT
+anova(mod_red, mod0, test="Chisq")
+```
+We can see that the full model, according to our test, better fits our data at any reasonable alpha-level. Now, let's try testing if number of hospital beds and per capita income have coefficients of zero in our model.
+
+```{r}
+mod_red <- multinom(`Geographic Region` ~ log(`Land Area`) + crimes_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Percent Unemployment`, data = train_crime)
+summary(mod_red)
+
+#LRT
+anova(mod_red, mod0, test="Chisq")
+```
+With an alpha-level of 0.05, we reject the null hypothesis that number of hospital beds and per capita income have coefficients of zero in our model. So, we may keep these variables in our model, although they seem to add little relative weight to the model decision.
 
 
 
