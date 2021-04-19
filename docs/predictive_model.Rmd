@@ -14,8 +14,13 @@ if (!require("nnet")){
   install.packages("nnet")
 }
 
+if (!require("formattable")){
+  install.packages("formattable")
+}
+
 library(dplyr)
 library(nnet)
+library(formattable)
 ```
 
 
@@ -84,7 +89,9 @@ Now let's fit our Logistic Regression Model, log-transforming the variables that
 
 ```{r}
 mod0 <- multinom(`Geographic Region` ~ log(`Land Area`) + beds_per_person + crimes_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Per Capita Income` + `Percent Unemployment`, data = train_crime)
-summary(mod0)
+#summary(mod0)
+coefs <- as.data.frame(summary(mod0)$coefficients)
+formattable(coefs, align = c("l", rep("r", NCOL(coefs) - 1)))
 ```
 
 
