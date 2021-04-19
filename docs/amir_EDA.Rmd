@@ -83,6 +83,15 @@ predictors <- crime[, 4:16]
 pairs(predictors, upper.panel = NULL, pch = 20)
 ```
 
+Interestingly, it appears that population is heavily correlated with total serious crimes, meaning that a transformation of crimes per person should be near constant. If we plot Crimes Per Person, we see that the spread is restricted, however the variable is not constant, and actually has an approximately normal distribution, making it an appropriate regressor.
+
+```{r}
+jpeg("../figs/crimes_per_person.jpg", width = 1000, height = 1000)
+crime_per_person <- crime$`Total Serious Crimes`/crime$`Total Pop.`
+
+hist(crime_per_person, main = "Distribution of Crimes Per Person", xlab = "Crimes Per Person")
+dev.off()
+```
 
 
 

@@ -1741,16 +1741,20 @@ pre code {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaWYgKCFyZXF1aXJlKFwiZHBseXJcIikpe1xuICBpbnN0YWxsLnBhY2thZ2VzKFwiZHBseXJcIilcbn1cblxuaWYgKCFyZXF1aXJlKFwibm5ldFwiKSl7XG4gIGluc3RhbGwucGFja2FnZXMoXCJubmV0XCIpXG59XG5cbmxpYnJhcnkoZHBseXIpXG5saWJyYXJ5KG5uZXQpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaWYgKCFyZXF1aXJlKFwiZHBseXJcIikpe1xuICBpbnN0YWxsLnBhY2thZ2VzKFwiZHBseXJcIilcbn1cblxuaWYgKCFyZXF1aXJlKFwibm5ldFwiKSl7XG4gIGluc3RhbGwucGFja2FnZXMoXCJubmV0XCIpXG59XG5gYGAifQ== -->
 <pre class="r"><code>if (!require(&quot;dplyr&quot;)){
   install.packages(&quot;dplyr&quot;)
 }
 
 if (!require(&quot;nnet&quot;)){
   install.packages(&quot;nnet&quot;)
-}
-
-library(dplyr)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiBubmV0XG4ifQ== -->
+<pre><code>Loading required package: nnet</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShkcGx5cilcbmxpYnJhcnkobm5ldClcbmBgYCJ9 -->
+<pre class="r"><code>library(dplyr)
 library(nnet)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
@@ -1758,7 +1762,7 @@ library(nnet)</code></pre>
 <p>First, let’s load the data.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3JpbWUgPC0gcmVhZC50YWJsZShcIi4uL2RhdGEvQVBQRU5DMDIudHh0XCIsIHNlcD1cIlwiLCBoZWFkZXI9RkFMU0UpXG5VTkkgPC0gMjI0NFxuc2V0LnNlZWQoVU5JKVxuaW5kZXggPC0gc2FtcGxlKGMoMTo0NDApKVxuY3JpbWUgPC0gY3JpbWVbaW5kZXhbMToyNTBdLF1cblxuIyBSZW5hbWUgY29sdW1uIG5hbWVzIHRvIHJlZmxlY3QgbWVhbmluZ1xuY29sdW1uLm5hbWVzIDwtIGMoXCJJZFwiLCBcIkNvdW50eSBOYW1lXCIsIFwiU3RhdGVcIiwgXCJMYW5kIEFyZWFcIiwgXCJUb3RhbCBQb3AuXCIsIFwiUGVyY2VudCBvZiBQb3AuIEFnZSAxOC0zNFwiLCBcIlBlcmNlbnQgb2YgUG9wLiBBZ2UgPj0gNjVcIiwgXCJOdW0gb2YgQWN0aXZlIFBoeXNpY2lhbnNcIiwgXCJOdW0gb2YgSG9zcGl0YWwgQmVkc1wiLCBcIlRvdGFsIFNlcmlvdXMgQ3JpbWVzXCIsIFwiUGVyY2VudCBIaWdoIFNjaG9vbCBHcmFkdWF0ZXNcIiwgXCJQZXJjZW50IEJhY2hlbG9yJ3MgRGVncmVlXCIsIFwiUGVyY2VudCBCZWxvdyBQb3ZlcnR5IExldmVsXCIsIFwiUGVyY2VudCBVbmVtcGxveW1lbnRcIiwgXCJQZXIgQ2FwaXRhIEluY29tZVwiLCBcIlRvdGFsIHBlcnNvbmFsIGluY29tZVwiLCBcIkdlb2dyYXBoaWMgUmVnaW9uXCIpXG5cbmNvbG5hbWVzKGNyaW1lKSA8LSBjb2x1bW4ubmFtZXNcblxuIyBBZGQgY3JpbWVzIHBlciBwZXJzb24gYXMgY29sdW1uXG5jcmltZXNfcGVyX3BlcnNvbiA8LSBjcmltZSRgVG90YWwgU2VyaW91cyBDcmltZXNgL2NyaW1lJGBUb3RhbCBQb3AuYFxuY3JpbWUgPC0gYXMuZGF0YS5mcmFtZShjYmluZChjcmltZSwgY3JpbWVzX3Blcl9wZXJzb24pKVxuXG5jcmltZSRgR2VvZ3JhcGhpYyBSZWdpb25gIDwtIGFzLmZhY3RvcihjcmltZSRgR2VvZ3JhcGhpYyBSZWdpb25gKSAjRW5zdXJlIG91ciBvdXRjb21lIHZhcmlhYmxlIGlzIHRyZWF0ZWQgYXMgYSBmYWN0b3IgdmFyaWFibGVcbndpdGgoY3JpbWUsIGxldmVscyhgR2VvZ3JhcGhpYyBSZWdpb25gKSlcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3JpbWUgPC0gcmVhZC50YWJsZShcIi4uL2RhdGEvQVBQRU5DMDIudHh0XCIsIHNlcD1cIlwiLCBoZWFkZXI9RkFMU0UpXG5VTkkgPC0gMjI0NFxuc2V0LnNlZWQoVU5JKVxuaW5kZXggPC0gc2FtcGxlKGMoMTo0NDApKVxuY3JpbWUgPC0gY3JpbWVbaW5kZXhbMToyNTBdLF1cblxuIyBSZW5hbWUgY29sdW1uIG5hbWVzIHRvIHJlZmxlY3QgbWVhbmluZ1xuY29sdW1uLm5hbWVzIDwtIGMoXCJJZFwiLCBcIkNvdW50eSBOYW1lXCIsIFwiU3RhdGVcIiwgXCJMYW5kIEFyZWFcIiwgXCJUb3RhbCBQb3AuXCIsIFwiUGVyY2VudCBvZiBQb3AuIEFnZSAxOC0zNFwiLCBcIlBlcmNlbnQgb2YgUG9wLiBBZ2UgPj0gNjVcIiwgXCJOdW0gb2YgQWN0aXZlIFBoeXNpY2lhbnNcIiwgXCJOdW0gb2YgSG9zcGl0YWwgQmVkc1wiLCBcIlRvdGFsIFNlcmlvdXMgQ3JpbWVzXCIsIFwiUGVyY2VudCBIaWdoIFNjaG9vbCBHcmFkdWF0ZXNcIiwgXCJQZXJjZW50IEJhY2hlbG9yJ3MgRGVncmVlXCIsIFwiUGVyY2VudCBCZWxvdyBQb3ZlcnR5IExldmVsXCIsIFwiUGVyY2VudCBVbmVtcGxveW1lbnRcIiwgXCJQZXIgQ2FwaXRhIEluY29tZVwiLCBcIlRvdGFsIHBlcnNvbmFsIGluY29tZVwiLCBcIkdlb2dyYXBoaWMgUmVnaW9uXCIpXG5cbmNvbG5hbWVzKGNyaW1lKSA8LSBjb2x1bW4ubmFtZXNcblxuIyBBZGQgY3JpbWVzIHBlciBwZXJzb24gYXMgY29sdW1uXG5jcmltZXNfcGVyX3BlcnNvbiA8LSBjcmltZSRgVG90YWwgU2VyaW91cyBDcmltZXNgL2NyaW1lJGBUb3RhbCBQb3AuYFxuY3JpbWUgPC0gYXMuZGF0YS5mcmFtZShjYmluZChjcmltZSwgY3JpbWVzX3Blcl9wZXJzb24pKVxuXG4jIEFkZCBob3NwaXRhbCBiZWRzIHBlciBwZXJzb24gYXMgY29sdW1uXG5iZWRzX3Blcl9wZXJzb24gPC0gY3JpbWUkYE51bSBvZiBIb3NwaXRhbCBCZWRzYC9jcmltZSRgVG90YWwgUG9wLmBcbmNyaW1lIDwtIGFzLmRhdGEuZnJhbWUoY2JpbmQoY3JpbWUsIGJlZHNfcGVyX3BlcnNvbikpXG5cbmNyaW1lJGBHZW9ncmFwaGljIFJlZ2lvbmAgPC0gYXMuZmFjdG9yKGNyaW1lJGBHZW9ncmFwaGljIFJlZ2lvbmApICNFbnN1cmUgb3VyIG91dGNvbWUgdmFyaWFibGUgaXMgdHJlYXRlZCBhcyBhIGZhY3RvciB2YXJpYWJsZVxud2l0aChjcmltZSwgbGV2ZWxzKGBHZW9ncmFwaGljIFJlZ2lvbmApKVxuYGBgIn0= -->
 <pre class="r"><code>crime &lt;- read.table(&quot;../data/APPENC02.txt&quot;, sep=&quot;&quot;, header=FALSE)
 UNI &lt;- 2244
 set.seed(UNI)
@@ -1774,6 +1778,10 @@ colnames(crime) &lt;- column.names
 crimes_per_person &lt;- crime$`Total Serious Crimes`/crime$`Total Pop.`
 crime &lt;- as.data.frame(cbind(crime, crimes_per_person))
 
+# Add hospital beds per person as column
+beds_per_person &lt;- crime$`Num of Hospital Beds`/crime$`Total Pop.`
+crime &lt;- as.data.frame(cbind(crime, beds_per_person))
+
 crime$`Geographic Region` &lt;- as.factor(crime$`Geographic Region`) #Ensure our outcome variable is treated as a factor variable
 with(crime, levels(`Geographic Region`))</code></pre>
 <!-- rnb-source-end -->
@@ -1783,10 +1791,10 @@ with(crime, levels(`Geographic Region`))</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVhZChjcmltZSlcbmBgYCJ9 -->
 <pre class="r"><code>head(crime)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6MTh9LCJyZGYiOiJINHNJQUFBQUFBQUFBNFVWWFdzY1ZmUmtkM2JyYm1pYXBDbXRxU2xUWWdrVXN0QnNMR2xwOXlPN05LbU5TY2lrMHFLMDNzN2UyUjA2TzNlNU01TWF4TWRDRWFSOVVpc1lVSXBVaExhb1FkUmZJSDY4OUtsL1FORTNRWXN2alQxMzdyMlRkQVM5eStGODMvTnh6NWxkYVY0b0Z5OFVBU0FMQnY2eU9TUWhkMzcxek9RTWdKRkJwZy9GQllIZlJLTzlTQXdqN0ViSUk5eENPSVhnSTN5S3NJbndDY0pnckplT3o4MUZydWN3M2xKOHJobXRFVTh4aFplcDQxQWVNRjlicjdoMnh5TitZbDF2a1c2Z21QeHNGSHFVcHdKa0ZodWFPck9ncWNhU3Bxekd2MlZMODl0RlpON0J3aEJuRGFUL3dxcnZZckVQRTMzdWxSZWcyUHdCOGc4MndIajlBQmo5aTJEdzkxRTNJUFMxaWhPZld1WExzamkxazc5SXZuN3hOcDRQYTZkdkt5emxpZC9FaitMOFZEdWkvRTJJVDIxYzRVTksvcUtqL1hTK2R4RGh5MlFtTU9kZk1kZXZFYWEzOVFicWkxV1VIVVZhNkNwbzUyL3IvV25vNi84ZDRMV1BBQzRkQVRqM0djRHgwU1F2S3kvaldpZGszcThHc2k3cmtlUXRWYWNGK2tpL0dWWFBWS29mcDFROVJ4V2VrdkxFYjZ3czdjWlZud1oxM1VwK1dNa1BPYy8yYjUrU2p5cDc3VGVzOElpS041cnUzOUxiQU0wdGdCV2M5ZGsvQUNwL0F0UjM5T2ZnQmtBSitmSEhBSHZ4VlFidkk4YWh6K3Foenlvd2R1Qk1hbHZ5SGwyalhxQW0xZEE3ZEV3VFU1b29hMkk2ZFVQTzlraWdMMGl1ZFlnZE1yRUFXN29SMWErKy83bDA3NjEzcTkvdUgvdjcrcDJQcTUvYjRlSEtONzlWTno4WWVhK3djYVA2eGVZYnpwNmJ1NnAzVndlSzN6MFpUWWZ4U1pmcU1NTjZQODdxOWV0dnNNZ1AxODFGdE5JZVZraEN6UlFXY0ZYTk9xZEVDWXFyTENTZXVjeDZKU1Y1ZnBseW0vcWh5WnhZYk5iYjFEdzJNMW1lL2krRHltbnorRXZLNE1CaTFCWEt1aDI2YTlSYzdxd0hydTBTWDM4V1JwUituZ1U5VjBTZnBhMUVKL094S0hkWkZKZ043b3B5cFc1TUI1NTMyeDNUc2p1TWVlWWNKNjBJQ3d6UzJjMFN1ME05eGljQ3MwbmJuT29XSEV3TVVIc05LMWlqSER1MklBWkFKNkZOenZ1MDIvUFllaGNacFJ0Q25ka2dJbkh6ckcrenBNLzdaT2E5K091SWhMdFRPVFJIV1p1VFhzZTF6UlhhZHBQdjU1QWRWM2daM1M1TDE5U0RGemk3VnRLUC9qL2ZjZUdZL1NjMWc4VVdDVW5KNFdJaTRqbDg1dnBkckJkaU5uaDVSdnhaNUZMT2ZUd2wyQlA1SXBuV3BOMkovS3VUVXlKQXJKYXdXK0g4RG5wWWhqUjBZam05SE5SdnUzNHlwaDY1a2p6QUFCWWQxMXpxY1RkcGZSR2xRU2tVYmRZU20zbGFJbmRzNnluQnpmQlNJd2NBQUE9PSJ9 -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6MTl9LCJyZGYiOiJINHNJQUFBQUFBQUFBNFZWM1c4YlJSRGYyR2NYTzJvK21sUXRLU2xYcFZHa1NyYVVPRlFCcFQ0N05ra0thUkxsVWxRRVN0aWU5K3dUNTF0Mzd5NGhJT0FKQ1pBUVFVaUZJaEdKcXFLcEVCK2lSSHo5QllpUEY1NzZEN1FDcVE4Z1FMd1FtTDNidlRpSEJHdU5adVkzTTdzenM3UG5wZXFGUXZaQ0ZpR1VSQXI4a2lrUVVlcjg4blJ1QWlFbEFVb0h3Qm5PbndHblBoQTRIUVJLQTIwQ1RRSTVRTzhEN1FCZEJlb0o3R0hnUFRPK1padVUxWVNlcXZwcjJCWks1aEZpbW9TNTFKSGVTNWJSc0xFVGVaZHJ1T2tLSlQzbGV6WmhzUU1TOHhVcFRjOUpxYklnSmIzeWIyeGhkcStJeEt0UUdQQ2tBdkx2VVBVMkZQdGpaRStkdXc5bHE5K2k5Q2RiU0hueUtGSTY1NUhDM2dKYkY3ZVhpbWF3U3NXYkJiNUtEOTBPOWZMalYyQzlVenB6UmZBUWorSkd2dVByKzlLd2lGZFJzRXBEZ2g4WCtFbFR4c2w4cndHRG0wbU1RTTUzSU5mUGdjYjM3QXJZc3hwZ3AwRG10aUw0T1h0Mlp4eDFkUDZNMEJQdklyUXlqTkNqTnhBNlBSRGxwYWZEYy9VSHc3d2ZjOE82OUZ1aHJvczZkU1JYR0RjaDZobUw5V05TMUhOSzhMRVFqK0lHQzZIZmtPaFRqNnhiNENjRWZ0emMzNy9EQWg4US9qTHVrT0Q5NHJ5QmVQOFdua2VvdW92UUVzejYxQzhJRlg5RHFOelduMk5iQ09WQkgvb0RaaDF1cGVkajRJZWdoM0xvazRLVU5wNkl2WmEwVGRhSTdZcEpWZVFiR3BYQ21CUUtVaGlQN1pBeWJPektEYUp0VFd4NGxEK0FYZGtJN2JOdmZzaC85TnhyMmxkSEJ2OTg2ZHA3MmdlR2Q2TDQ1VS9henR2OWx6TmJMMnVmN2p4bGRyOStRTnRlN3NwKy9WZDAwWnFkSEwwNytjYXdSdS8rZW5uOWhVMXQrdUV2Vmw2WnVGKzdkRzdyenJPYk9VM2Z2dVN1c0RlMXhvZEhWcSsvdUJwUHo4Rk5JdFByaysvcXJIeTJuUlhxTzk2R09nOWVNa0wzc0NlVnpCdzhjYlhNQ0JaQWRwbDYyRllYYVNzdmtIc1hDVE9JNDZuVURHQzFYQ2ZxNkVTdU1QNWZEc1V6NnVrSGhNUFJlYi9KaldYRHM5YUl1dGpZY0MzRHdvNzhuUFFMK3l4MVd4WS9mWXJVSWx1WWowNllSWDFYclRDTGx4dmFCdVhCczFhOW9lcEdnMUpibldHNDVrT0Jiank3S1d3MGlFM1ppS3RXU1owUjJZSmprUU5ZMTZHQ05jS2dZM044Y0dRUzB1VzhRNW90bTI0MFFSRzJYckNwRmN3VFY4ODZCbzM2ZkRqTXZCVjhWVUd3Mm8yOU00VFdHVzQxTEVOZEluVXIrdTcyR2tHRnF4QzIybXIvSUhkZmhLYTB3L3ZuSU1Qb2VsN093di84TGZEQTVOK3hrYzdXc0lmekp1T0RFb3oxdnUwUDBKWUhTY0xtQ2Y2L2s0b0ZkN0FZME8wN1BKbGF6bWo0enRPNU1YNUFZQTdwb09EcE5ya3ZQRktSaWFYa1d5Tk8zWEtpNmJYeHhlaGV1cURvb09aOGkxblJqV1FCZGZNZTc3NUVER3BMSkh5eXUvOEF2RDJ6YVhJSEFBQT0ifQ== -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Id"],"name":[1],"type":["int"],"align":["right"]},{"label":["County Name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["State"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Land Area"],"name":[4],"type":["int"],"align":["right"]},{"label":["Total Pop."],"name":[5],"type":["int"],"align":["right"]},{"label":["Percent of Pop. Age 18-34"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Percent of Pop. Age >= 65"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Num of Active Physicians"],"name":[8],"type":["int"],"align":["right"]},{"label":["Num of Hospital Beds"],"name":[9],"type":["int"],"align":["right"]},{"label":["Total Serious Crimes"],"name":[10],"type":["int"],"align":["right"]},{"label":["Percent High School Graduates"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Percent Bachelor's Degree"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["Percent Below Poverty Level"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["Percent Unemployment"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["Per Capita Income"],"name":[15],"type":["int"],"align":["right"]},{"label":["Total personal income"],"name":[16],"type":["int"],"align":["right"]},{"label":["Geographic Region"],"name":[17],"type":["fctr"],"align":["left"]},{"label":["crimes_per_person"],"name":[18],"type":["dbl"],"align":["right"]}],"data":[{"1":"144","2":"Guilford","3":"NC","4":"650","5":"347420","6":"30.4","7":"11.9","8":"676","9":"1188","10":"28212","11":"76.1","12":"24.8","13":"7.3","14":"5.4","15":"20349","16":"7070","17":"3","18":"0.08120431","_rn_":"144"},{"1":"60","2":"Duval","3":"FL","4":"774","5":"672971","6":"30.7","7":"10.7","8":"1538","9":"2623","10":"68586","11":"76.9","12":"18.4","13":"9.8","14":"6.6","15":"17662","16":"11886","17":"3","18":"0.10191524","_rn_":"60"},{"1":"110","2":"Jefferson","3":"CO","4":"772","5":"438430","6":"26.9","7":"8.0","8":"551","9":"298","10":"23453","11":"89.8","12":"30.7","13":"4.1","14":"4.1","15":"20997","16":"9206","17":"4","18":"0.05349315","_rn_":"110"},{"1":"166","2":"Richland","3":"SC","4":"757","5":"285720","6":"34.7","7":"9.5","8":"999","9":"1207","10":"24101","11":"79.4","12":"28.0","13":"10.1","14":"4.6","15":"17137","16":"4896","17":"3","18":"0.08435181","_rn_":"166"},{"1":"181","2":"Adams","3":"CO","4":"1192","5":"265038","6":"29.6","7":"7.6","8":"439","9":"318","10":"19369","11":"78.8","12":"13.0","13":"8.8","14":"5.0","15":"16116","16":"4271","17":"4","18":"0.07308009","_rn_":"181"},{"1":"162","2":"Butler","3":"OH","4":"467","5":"291479","6":"29.9","7":"10.2","8":"308","9":"878","10":"13850","11":"76.0","12":"18.7","13":"7.6","14":"6.6","15":"16750","16":"4882","17":"2","18":"0.04751629","_rn_":"162"}],"options":{"columns":{"min":{},"max":[10],"total":[18]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Id"],"name":[1],"type":["int"],"align":["right"]},{"label":["County Name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["State"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Land Area"],"name":[4],"type":["int"],"align":["right"]},{"label":["Total Pop."],"name":[5],"type":["int"],"align":["right"]},{"label":["Percent of Pop. Age 18-34"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Percent of Pop. Age >= 65"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Num of Active Physicians"],"name":[8],"type":["int"],"align":["right"]},{"label":["Num of Hospital Beds"],"name":[9],"type":["int"],"align":["right"]},{"label":["Total Serious Crimes"],"name":[10],"type":["int"],"align":["right"]},{"label":["Percent High School Graduates"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Percent Bachelor's Degree"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["Percent Below Poverty Level"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["Percent Unemployment"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["Per Capita Income"],"name":[15],"type":["int"],"align":["right"]},{"label":["Total personal income"],"name":[16],"type":["int"],"align":["right"]},{"label":["Geographic Region"],"name":[17],"type":["fctr"],"align":["left"]},{"label":["crimes_per_person"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["beds_per_person"],"name":[19],"type":["dbl"],"align":["right"]}],"data":[{"1":"144","2":"Guilford","3":"NC","4":"650","5":"347420","6":"30.4","7":"11.9","8":"676","9":"1188","10":"28212","11":"76.1","12":"24.8","13":"7.3","14":"5.4","15":"20349","16":"7070","17":"3","18":"0.08120431","19":"0.003419492","_rn_":"144"},{"1":"60","2":"Duval","3":"FL","4":"774","5":"672971","6":"30.7","7":"10.7","8":"1538","9":"2623","10":"68586","11":"76.9","12":"18.4","13":"9.8","14":"6.6","15":"17662","16":"11886","17":"3","18":"0.10191524","19":"0.003897642","_rn_":"60"},{"1":"110","2":"Jefferson","3":"CO","4":"772","5":"438430","6":"26.9","7":"8.0","8":"551","9":"298","10":"23453","11":"89.8","12":"30.7","13":"4.1","14":"4.1","15":"20997","16":"9206","17":"4","18":"0.05349315","19":"0.000679698","_rn_":"110"},{"1":"166","2":"Richland","3":"SC","4":"757","5":"285720","6":"34.7","7":"9.5","8":"999","9":"1207","10":"24101","11":"79.4","12":"28.0","13":"10.1","14":"4.6","15":"17137","16":"4896","17":"3","18":"0.08435181","19":"0.004224416","_rn_":"166"},{"1":"181","2":"Adams","3":"CO","4":"1192","5":"265038","6":"29.6","7":"7.6","8":"439","9":"318","10":"19369","11":"78.8","12":"13.0","13":"8.8","14":"5.0","15":"16116","16":"4271","17":"4","18":"0.07308009","19":"0.001199828","_rn_":"181"},{"1":"162","2":"Butler","3":"OH","4":"467","5":"291479","6":"29.9","7":"10.2","8":"308","9":"878","10":"13850","11":"76.0","12":"18.7","13":"7.6","14":"6.6","15":"16750","16":"4882","17":"2","18":"0.04751629","19":"0.003012224","_rn_":"162"}],"options":{"columns":{"min":{},"max":[10],"total":[19]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
   </script>
 </div>
 <!-- rnb-frame-end -->
@@ -1817,70 +1825,70 @@ test_crime  &lt;- crime[-train_index, ]
 
 print(dim(train_crime))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDIwMCAgMThcbiJ9 -->
-<pre><code>[1] 200  18</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDIwMCAgMTlcbiJ9 -->
+<pre><code>[1] 200  19</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJpbnQoZGltKHRlc3RfY3JpbWUpKVxuYGBgIn0= -->
 <pre class="r"><code>print(dim(test_crime))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDUwIDE4XG4ifQ== -->
-<pre><code>[1] 50 18</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDUwIDE5XG4ifQ== -->
+<pre><code>[1] 50 19</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Now let’s fit our Logistic Regression Model, log-transforming the variables that are exponentially-distributed.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubW9kMCA8LSBtdWx0aW5vbShgR2VvZ3JhcGhpYyBSZWdpb25gIH4gbG9nKGBMYW5kIEFyZWFgKSArIGBOdW0gb2YgSG9zcGl0YWwgQmVkc2AgKyBjcmltZXNfcGVyX3BlcnNvbiArIGBQZXJjZW50IEhpZ2ggU2Nob29sIEdyYWR1YXRlc2AgKyBgUGVyY2VudCBCZWxvdyBQb3ZlcnR5IExldmVsYCArIGBQZXIgQ2FwaXRhIEluY29tZWAgKyBgUGVyY2VudCBVbmVtcGxveW1lbnRgLCBkYXRhID0gdHJhaW5fY3JpbWUpXG5gYGAifQ== -->
-<pre class="r"><code>mod0 &lt;- multinom(`Geographic Region` ~ log(`Land Area`) + `Num of Hospital Beds` + crimes_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Per Capita Income` + `Percent Unemployment`, data = train_crime)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubW9kMCA8LSBtdWx0aW5vbShgR2VvZ3JhcGhpYyBSZWdpb25gIH4gbG9nKGBMYW5kIEFyZWFgKSArIGJlZHNfcGVyX3BlcnNvbiArIGNyaW1lc19wZXJfcGVyc29uICsgYFBlcmNlbnQgSGlnaCBTY2hvb2wgR3JhZHVhdGVzYCArIGBQZXJjZW50IEJlbG93IFBvdmVydHkgTGV2ZWxgICsgYFBlciBDYXBpdGEgSW5jb21lYCArIGBQZXJjZW50IFVuZW1wbG95bWVudGAsIGRhdGEgPSB0cmFpbl9jcmltZSlcbmBgYCJ9 -->
+<pre class="r"><code>mod0 &lt;- multinom(`Geographic Region` ~ log(`Land Area`) + beds_per_person + crimes_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Per Capita Income` + `Percent Unemployment`, data = train_crime)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiIyB3ZWlnaHRzOiAgMzYgKDI0IHZhcmlhYmxlKVxuaW5pdGlhbCAgdmFsdWUgMjc3LjI1ODg3MiBcbml0ZXIgIDEwIHZhbHVlIDI1MC40ODg0NjFcbml0ZXIgIDIwIHZhbHVlIDIwOS4yMTU0Nzlcbml0ZXIgIDMwIHZhbHVlIDE3Mi43ODAzNjhcbml0ZXIgIDQwIHZhbHVlIDE2NS4zNTI1MTZcbml0ZXIgIDUwIHZhbHVlIDE2Mi41MjQ1MzNcbml0ZXIgIDYwIHZhbHVlIDE2Mi41MDQ0OThcbml0ZXIgIDcwIHZhbHVlIDE2Mi4zOTE1NTVcbml0ZXIgIDgwIHZhbHVlIDE2MS40NTA2MTdcbml0ZXIgIDkwIHZhbHVlIDE2MC44NDk2MjZcbml0ZXIgMTAwIHZhbHVlIDE2MC41NTM2NjdcbmZpbmFsICB2YWx1ZSAxNjAuNTUzNjY3IFxuc3RvcHBlZCBhZnRlciAxMDAgaXRlcmF0aW9uc1xuIn0= -->
+<!-- rnb-output-begin eyJkYXRhIjoiIyB3ZWlnaHRzOiAgMzYgKDI0IHZhcmlhYmxlKVxuaW5pdGlhbCAgdmFsdWUgMjc3LjI1ODg3MiBcbml0ZXIgIDEwIHZhbHVlIDIzOS43Mzc3MzVcbml0ZXIgIDIwIHZhbHVlIDE5My4yMzU2NDVcbml0ZXIgIDMwIHZhbHVlIDE3NC4yNTI4NDVcbml0ZXIgIDQwIHZhbHVlIDE3MC42MTk5MzRcbml0ZXIgIDUwIHZhbHVlIDE2Ny45OTY4NTVcbml0ZXIgIDYwIHZhbHVlIDE2Ny45NzI4ODJcbml0ZXIgIDcwIHZhbHVlIDE2Ni43ODA3MTVcbml0ZXIgIDgwIHZhbHVlIDE2NS42MTIwMjNcbml0ZXIgIDkwIHZhbHVlIDE2NC4zMjk3MzVcbml0ZXIgMTAwIHZhbHVlIDE2Mi4xNDk5NjVcbmZpbmFsICB2YWx1ZSAxNjIuMTQ5OTY1IFxuc3RvcHBlZCBhZnRlciAxMDAgaXRlcmF0aW9uc1xuIn0= -->
 <pre><code># weights:  36 (24 variable)
 initial  value 277.258872 
-iter  10 value 250.488461
-iter  20 value 209.215479
-iter  30 value 172.780368
-iter  40 value 165.352516
-iter  50 value 162.524533
-iter  60 value 162.504498
-iter  70 value 162.391555
-iter  80 value 161.450617
-iter  90 value 160.849626
-iter 100 value 160.553667
-final  value 160.553667 
+iter  10 value 239.737735
+iter  20 value 193.235645
+iter  30 value 174.252845
+iter  40 value 170.619934
+iter  50 value 167.996855
+iter  60 value 167.972882
+iter  70 value 166.780715
+iter  80 value 165.612023
+iter  90 value 164.329735
+iter 100 value 162.149965
+final  value 162.149965 
 stopped after 100 iterations</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShtb2QwKVxuYGBgIn0= -->
 <pre class="r"><code>summary(mod0)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiQ2FsbDpcbm11bHRpbm9tKGZvcm11bGEgPSBgR2VvZ3JhcGhpYyBSZWdpb25gIH4gbG9nKGBMYW5kIEFyZWFgKSArIGBOdW0gb2YgSG9zcGl0YWwgQmVkc2AgKyBcbiAgICBjcmltZXNfcGVyX3BlcnNvbiArIGBQZXJjZW50IEhpZ2ggU2Nob29sIEdyYWR1YXRlc2AgKyBgUGVyY2VudCBCZWxvdyBQb3ZlcnR5IExldmVsYCArIFxuICAgIGBQZXIgQ2FwaXRhIEluY29tZWAgKyBgUGVyY2VudCBVbmVtcGxveW1lbnRgLCBkYXRhID0gdHJhaW5fY3JpbWUpXG5cbkNvZWZmaWNpZW50czpcbiAgKEludGVyY2VwdCkgbG9nKGBMYW5kIEFyZWFgKSBgTnVtIG9mIEhvc3BpdGFsIEJlZHNgIGNyaW1lc19wZXJfcGVyc29uIGBQZXJjZW50IEhpZ2ggU2Nob29sIEdyYWR1YXRlc2AgYFBlcmNlbnQgQmVsb3cgUG92ZXJ0eSBMZXZlbGBcbjIgIC0xOC40ODU4NjQgICAgICAgIDAuMTE4NTA1NCAgICAgICAgICAtMS45MTk5MjZlLTA1ICAgICAgICAgIDQ2LjYwNDI0ICAgICAgICAgICAgICAgICAgICAgIDAuMjQ3OTA1NzkgICAgICAgICAgICAgICAgICAgICAwLjI3ODgwMDRcbjMgICAtNC4xNzk1MTQgICAgICAgIDEuMDMzOTc0MCAgICAgICAgICAtNC4zNjgzMjllLTA0ICAgICAgICAgIDk0LjkwNzA4ICAgICAgICAgICAgICAgICAgICAgIDAuMDE4NzIzOTUgICAgICAgICAgICAgICAgICAgICAwLjIwOTE2MjhcbjQgIC01NS44ODA2NjcgICAgICAgIDMuNjUzMTg3NSAgICAgICAgICAtMS44ODc2MzFlLTA0ICAgICAgICAgIDQ3LjQxODQxICAgICAgICAgICAgICAgICAgICAgIDAuMzUxNjM4MjYgICAgICAgICAgICAgICAgICAgICAwLjQ4MDIwOTNcbiAgYFBlciBDYXBpdGEgSW5jb21lYCBgUGVyY2VudCBVbmVtcGxveW1lbnRgXG4yICAgICAgIC0yLjAwNTE0N2UtMDQgICAgICAgICAgICAgLTAuMjM4NTE0OVxuMyAgICAgICAtMi40NTEwNjZlLTA0ICAgICAgICAgICAgIC0wLjcwMzUxMTVcbjQgICAgICAgLTguMTQ5MjE3ZS0wNiAgICAgICAgICAgICAtMC4zMDA3MTY5XG5cblN0ZC4gRXJyb3JzOlxuICAgKEludGVyY2VwdCkgbG9nKGBMYW5kIEFyZWFgKSBgTnVtIG9mIEhvc3BpdGFsIEJlZHNgIGNyaW1lc19wZXJfcGVyc29uIGBQZXJjZW50IEhpZ2ggU2Nob29sIEdyYWR1YXRlc2BcbjIgMC4wMDA0NjcyMDg5ICAgICAgMC4wMDI1NDkxODMgICAgICAgICAgIDcuMDU2OTE5ZS0wNSAgICAgIDYuNjk5ODM4ZS0wNSAgICAgICAgICAgICAgICAgICAgICAwLjAyMDIyNzEwXG4zIDAuMDAwMzk4NTM4MSAgICAgIDAuMDAzMTc0NjAyICAgICAgICAgICAxLjQ2NDU1OWUtMDQgICAgICA0LjA1MzM1MGUtMDUgICAgICAgICAgICAgICAgICAgICAgMC4wMjM3Nzg5OVxuNCAwLjAwMDQ0NDg2MzkgICAgICAwLjAwNDAzODYwMyAgICAgICAgICAgOC4wNTQ4NTBlLTA1ICAgICAgNC4zMzUwNzRlLTA1ICAgICAgICAgICAgICAgICAgICAgIDAuMDI1NTE4ODlcbiAgYFBlcmNlbnQgQmVsb3cgUG92ZXJ0eSBMZXZlbGAgYFBlciBDYXBpdGEgSW5jb21lYCBgUGVyY2VudCBVbmVtcGxveW1lbnRgXG4yICAgICAgICAgICAgICAgICAgICAwLjAzMDk1MzkzICAgICAgICA3Ljc4ODMzM2UtMDUgICAgICAgICAgICAgMC4wMTI5MjE1NVxuMyAgICAgICAgICAgICAgICAgICAgMC4wMjQ1NDMzMSAgICAgICAgOS45MjUzMjFlLTA1ICAgICAgICAgICAgIDAuMDEwMDEwMTVcbjQgICAgICAgICAgICAgICAgICAgIDAuMDI2OTkzNjkgICAgICAgIDEuMDIyMzcwZS0wNCAgICAgICAgICAgICAwLjAxNDI3NzA0XG5cblJlc2lkdWFsIERldmlhbmNlOiAzMjEuMTA3MyBcbkFJQzogMzY5LjEwNzMgXG4ifQ== -->
+<!-- rnb-output-begin eyJkYXRhIjoiQ2FsbDpcbm11bHRpbm9tKGZvcm11bGEgPSBgR2VvZ3JhcGhpYyBSZWdpb25gIH4gbG9nKGBMYW5kIEFyZWFgKSArIGJlZHNfcGVyX3BlcnNvbiArIFxuICAgIGNyaW1lc19wZXJfcGVyc29uICsgYFBlcmNlbnQgSGlnaCBTY2hvb2wgR3JhZHVhdGVzYCArIGBQZXJjZW50IEJlbG93IFBvdmVydHkgTGV2ZWxgICsgXG4gICAgYFBlciBDYXBpdGEgSW5jb21lYCArIGBQZXJjZW50IFVuZW1wbG95bWVudGAsIGRhdGEgPSB0cmFpbl9jcmltZSlcblxuQ29lZmZpY2llbnRzOlxuICAoSW50ZXJjZXB0KSBsb2coYExhbmQgQXJlYWApIGJlZHNfcGVyX3BlcnNvbiBjcmltZXNfcGVyX3BlcnNvbiBgUGVyY2VudCBIaWdoIFNjaG9vbCBHcmFkdWF0ZXNgIGBQZXJjZW50IEJlbG93IFBvdmVydHkgTGV2ZWxgXG4yICAtMjEuNjI3Mjc0ICAgICAgICAwLjI3MTcyNzAgICAgICAgMTA0LjgyNzYyICAgICAgICAgIDYxLjUzMzkwICAgICAgICAgICAgICAgICAgICAgIDAuMjczMTc1NzEgICAgICAgICAgICAgICAgICAgICAwLjIxMzEwMDJcbjMgICAtNC4xMTM2MTcgICAgICAgIDAuOTMwNzcxNiAgICAgIC0xMDQuMDc2NjkgICAgICAgICAxMDYuMzA0OTAgICAgICAgICAgICAgICAgICAgICAgMC4wNjcyMjIxOSAgICAgICAgICAgICAgICAgICAgIDAuMTIwNjkwOVxuNCAgLTYyLjQ2MTMzNiAgICAgICAgMy42NTMxMTcyICAgICAgIC0zNC4xNzUyNSAgICAgICAgICA3NC45NzE2NyAgICAgICAgICAgICAgICAgICAgICAwLjQzNzE4MTI5ICAgICAgICAgICAgICAgICAgICAgMC40MDg4MzU4XG4gIGBQZXIgQ2FwaXRhIEluY29tZWAgYFBlcmNlbnQgVW5lbXBsb3ltZW50YFxuMiAgICAgICAtMC4wMDAyMzQ5NDkzICAgICAgICAgICAgIC0wLjE4MTk1MTFcbjMgICAgICAgLTAuMDAwNDI0NTQxNiAgICAgICAgICAgICAtMC42ODA1NjY5XG40ICAgICAgIC0wLjAwMDExNjkwMzAgICAgICAgICAgICAgLTAuMTY1MDk5MVxuXG5TdGQuIEVycm9yczpcbiAgIChJbnRlcmNlcHQpIGxvZyhgTGFuZCBBcmVhYCkgYmVkc19wZXJfcGVyc29uIGNyaW1lc19wZXJfcGVyc29uIGBQZXJjZW50IEhpZ2ggU2Nob29sIEdyYWR1YXRlc2AgYFBlcmNlbnQgQmVsb3cgUG92ZXJ0eSBMZXZlbGBcbjIgMC4wMDA0MjI3OTQyICAgICAgMC4wMDI2MzkyNTEgICAgOC4yNjA4OTllLTA2ICAgICAgNy4zNzAwNDBlLTA1ICAgICAgICAgICAgICAgICAgICAgIDAuMDE5NDIyMjEgICAgICAgICAgICAgICAgICAgIDAuMDI2NDU5NDFcbjMgMC4wMDA0MDk5MTM5ICAgICAgMC4wMDMzMTIzNzIgICAgNS45NTEwNDJlLTA2ICAgICAgNS4yNjkwODhlLTA1ICAgICAgICAgICAgICAgICAgICAgIDAuMDIzMTE2MzkgICAgICAgICAgICAgICAgICAgIDAuMDIyOTgxMjRcbjQgMC4wMDA0NTIyNTI5ICAgICAgMC4wMDQxNjE4NjUgICAgMi45MTUzNTdlLTA2ICAgICAgNS4wMjkwMjJlLTA1ICAgICAgICAgICAgICAgICAgICAgIDAuMDI2MzI0NTMgICAgICAgICAgICAgICAgICAgIDAuMDI2NTI3MTVcbiAgYFBlciBDYXBpdGEgSW5jb21lYCBgUGVyY2VudCBVbmVtcGxveW1lbnRgXG4yICAgICAgICA3LjQ5NzQwNWUtMDUgICAgICAgICAgICAwLjAxMDE3NzYyMVxuMyAgICAgICAgOS41NTE4NjVlLTA1ICAgICAgICAgICAgMC4wMDg3OTgxNTVcbjQgICAgICAgIDEuMDU5NjgxZS0wNCAgICAgICAgICAgIDAuMDEyNzYyNjg4XG5cblJlc2lkdWFsIERldmlhbmNlOiAzMjQuMjk5OSBcbkFJQzogMzcyLjI5OTkgXG4ifQ== -->
 <pre><code>Call:
-multinom(formula = `Geographic Region` ~ log(`Land Area`) + `Num of Hospital Beds` + 
+multinom(formula = `Geographic Region` ~ log(`Land Area`) + beds_per_person + 
     crimes_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + 
     `Per Capita Income` + `Percent Unemployment`, data = train_crime)
 
 Coefficients:
-  (Intercept) log(`Land Area`) `Num of Hospital Beds` crimes_per_person `Percent High School Graduates` `Percent Below Poverty Level`
-2  -18.485864        0.1185054          -1.919926e-05          46.60424                      0.24790579                     0.2788004
-3   -4.179514        1.0339740          -4.368329e-04          94.90708                      0.01872395                     0.2091628
-4  -55.880667        3.6531875          -1.887631e-04          47.41841                      0.35163826                     0.4802093
+  (Intercept) log(`Land Area`) beds_per_person crimes_per_person `Percent High School Graduates` `Percent Below Poverty Level`
+2  -21.627274        0.2717270       104.82762          61.53390                      0.27317571                     0.2131002
+3   -4.113617        0.9307716      -104.07669         106.30490                      0.06722219                     0.1206909
+4  -62.461336        3.6531172       -34.17525          74.97167                      0.43718129                     0.4088358
   `Per Capita Income` `Percent Unemployment`
-2       -2.005147e-04             -0.2385149
-3       -2.451066e-04             -0.7035115
-4       -8.149217e-06             -0.3007169
+2       -0.0002349493             -0.1819511
+3       -0.0004245416             -0.6805669
+4       -0.0001169030             -0.1650991
 
 Std. Errors:
-   (Intercept) log(`Land Area`) `Num of Hospital Beds` crimes_per_person `Percent High School Graduates`
-2 0.0004672089      0.002549183           7.056919e-05      6.699838e-05                      0.02022710
-3 0.0003985381      0.003174602           1.464559e-04      4.053350e-05                      0.02377899
-4 0.0004448639      0.004038603           8.054850e-05      4.335074e-05                      0.02551889
-  `Percent Below Poverty Level` `Per Capita Income` `Percent Unemployment`
-2                    0.03095393        7.788333e-05             0.01292155
-3                    0.02454331        9.925321e-05             0.01001015
-4                    0.02699369        1.022370e-04             0.01427704
+   (Intercept) log(`Land Area`) beds_per_person crimes_per_person `Percent High School Graduates` `Percent Below Poverty Level`
+2 0.0004227942      0.002639251    8.260899e-06      7.370040e-05                      0.01942221                    0.02645941
+3 0.0004099139      0.003312372    5.951042e-06      5.269088e-05                      0.02311639                    0.02298124
+4 0.0004522529      0.004161865    2.915357e-06      5.029022e-05                      0.02632453                    0.02652715
+  `Per Capita Income` `Percent Unemployment`
+2        7.497405e-05            0.010177621
+3        9.551865e-05            0.008798155
+4        1.059681e-04            0.012762688
 
-Residual Deviance: 321.1073 
-AIC: 369.1073 </code></pre>
+Residual Deviance: 324.2999 
+AIC: 372.2999 </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1911,14 +1919,14 @@ test_acc &lt;- round((sum(diag(ctable_test))/sum(ctable_test))*100,4)
 
 print(paste(&quot;Training Accuracy: &quot;, train_acc, &quot;%&quot;, sep=&quot;&quot;))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiVHJhaW5pbmcgQWNjdXJhY3k6IDY3JVwiXG4ifQ== -->
-<pre><code>[1] &quot;Training Accuracy: 67%&quot;</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiVHJhaW5pbmcgQWNjdXJhY3k6IDY1LjUlXCJcbiJ9 -->
+<pre><code>[1] &quot;Training Accuracy: 65.5%&quot;</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJpbnQocGFzdGUoXCJUZXN0aW5nIEFjY3VyYWN5OiBcIiwgdGVzdF9hY2MsIFwiJVwiLCBzZXA9XCJcIikpXG5gYGAifQ== -->
 <pre class="r"><code>print(paste(&quot;Testing Accuracy: &quot;, test_acc, &quot;%&quot;, sep=&quot;&quot;))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiVGVzdGluZyBBY2N1cmFjeTogNjIlXCJcbiJ9 -->
-<pre><code>[1] &quot;Testing Accuracy: 62%&quot;</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiVGVzdGluZyBBY2N1cmFjeTogNjYlXCJcbiJ9 -->
+<pre><code>[1] &quot;Testing Accuracy: 66%&quot;</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1932,19 +1940,19 @@ z &lt;- summary(mod0)$coefficients/summary(mod0)$standard.errors
 p &lt;- (1 - pnorm(abs(z), 0, 1)) * 2 #testing if B_i = 0 vs. B_i /= 0
 p</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiICAoSW50ZXJjZXB0KSBsb2coYExhbmQgQXJlYWApIGBOdW0gb2YgSG9zcGl0YWwgQmVkc2AgY3JpbWVzX3Blcl9wZXJzb24gYFBlcmNlbnQgSGlnaCBTY2hvb2wgR3JhZHVhdGVzYCBgUGVyY2VudCBCZWxvdyBQb3ZlcnR5IExldmVsYFxuMiAgICAgICAgICAgMCAgICAgICAgICAgICAgICAwICAgICAgICAgICAgMC43ODU1NzM2NjUgICAgICAgICAgICAgICAgIDAgICAgICAgICAgICAgICAgICAgICAgIDAuMDAwMDAwMCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMFxuMyAgICAgICAgICAgMCAgICAgICAgICAgICAgICAwICAgICAgICAgICAgMC4wMDI4NTcyNTEgICAgICAgICAgICAgICAgIDAgICAgICAgICAgICAgICAgICAgICAgIDAuNDMxMDM4NyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMFxuNCAgICAgICAgICAgMCAgICAgICAgICAgICAgICAwICAgICAgICAgICAgMC4wMTkxMDUyMDQgICAgICAgICAgICAgICAgIDAgICAgICAgICAgICAgICAgICAgICAgIDAuMDAwMDAwMCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMFxuICBgUGVyIENhcGl0YSBJbmNvbWVgIGBQZXJjZW50IFVuZW1wbG95bWVudGBcbjIgICAgICAgICAgMC4wMTAwMzcwMCAgICAgICAgICAgICAgICAgICAgICAwXG4zICAgICAgICAgIDAuMDEzNTI5ODkgICAgICAgICAgICAgICAgICAgICAgMFxuNCAgICAgICAgICAwLjkzNjQ2ODY1ICAgICAgICAgICAgICAgICAgICAgIDBcbiJ9 -->
-<pre><code>  (Intercept) log(`Land Area`) `Num of Hospital Beds` crimes_per_person `Percent High School Graduates` `Percent Below Poverty Level`
-2           0                0            0.785573665                 0                       0.0000000                             0
-3           0                0            0.002857251                 0                       0.4310387                             0
-4           0                0            0.019105204                 0                       0.0000000                             0
+<!-- rnb-output-begin eyJkYXRhIjoiICAoSW50ZXJjZXB0KSBsb2coYExhbmQgQXJlYWApIGJlZHNfcGVyX3BlcnNvbiBjcmltZXNfcGVyX3BlcnNvbiBgUGVyY2VudCBIaWdoIFNjaG9vbCBHcmFkdWF0ZXNgIGBQZXJjZW50IEJlbG93IFBvdmVydHkgTGV2ZWxgXG4yICAgICAgICAgICAwICAgICAgICAgICAgICAgIDAgICAgICAgICAgICAgICAwICAgICAgICAgICAgICAgICAwICAgICAgICAgICAgICAgICAgICAgMC4wMDAwMDAwMDAgICAgICAgICAgICAgICAgICA4Ljg4MTc4NGUtMTZcbjMgICAgICAgICAgIDAgICAgICAgICAgICAgICAgMCAgICAgICAgICAgICAgIDAgICAgICAgICAgICAgICAgIDAgICAgICAgICAgICAgICAgICAgICAwLjAwMzYzNzYxNyAgICAgICAgICAgICAgICAgIDEuNTA2OTAwZS0wN1xuNCAgICAgICAgICAgMCAgICAgICAgICAgICAgICAwICAgICAgICAgICAgICAgMCAgICAgICAgICAgICAgICAgMCAgICAgICAgICAgICAgICAgICAgIDAuMDAwMDAwMDAwICAgICAgICAgICAgICAgICAgMC4wMDAwMDBlKzAwXG4gIGBQZXIgQ2FwaXRhIEluY29tZWAgYFBlcmNlbnQgVW5lbXBsb3ltZW50YFxuMiAgICAgICAgMS43MjU5MjRlLTAzICAgICAgICAgICAgICAgICAgICAgIDBcbjMgICAgICAgIDguODA1ODI3ZS0wNiAgICAgICAgICAgICAgICAgICAgICAwXG40ICAgICAgICAyLjY5OTQ0M2UtMDEgICAgICAgICAgICAgICAgICAgICAgMFxuIn0= -->
+<pre><code>  (Intercept) log(`Land Area`) beds_per_person crimes_per_person `Percent High School Graduates` `Percent Below Poverty Level`
+2           0                0               0                 0                     0.000000000                  8.881784e-16
+3           0                0               0                 0                     0.003637617                  1.506900e-07
+4           0                0               0                 0                     0.000000000                  0.000000e+00
   `Per Capita Income` `Percent Unemployment`
-2          0.01003700                      0
-3          0.01352989                      0
-4          0.93646865                      0</code></pre>
+2        1.725924e-03                      0
+3        8.805827e-06                      0
+4        2.699443e-01                      0</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>We can see that there are only three coefficients that are not significant at an alpha-level of 0.05: num of hospital beds for level 2, percent of high school graduates for level 3, and per capita income for level 4. Since these coefficients are in comparison to our baseline level of the Northeast, then this tells us that these features in these regions do not differ significantly from the northeast in our data according to our model.</p>
+<p>We can see that there is only one coefficients that is not significant at an alpha-level of 0.05: per capita income for level 4. Since these coefficients are in comparison to our baseline level of the Northeast, then this tells us that per capita income does not differ significantly between the west and the northeast in our data according to our model.</p>
 <p>Last thing we should do is view the exponentiated coefficients, and see what we can interpret from them:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -1952,138 +1960,149 @@ p</code></pre>
 <pre class="r"><code>exp_coefs &lt;- exp(summary(mod0)$coefficients)
 exp_coefs</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiICAgKEludGVyY2VwdCkgbG9nKGBMYW5kIEFyZWFgKSBgTnVtIG9mIEhvc3BpdGFsIEJlZHNgIGNyaW1lc19wZXJfcGVyc29uIGBQZXJjZW50IEhpZ2ggU2Nob29sIEdyYWR1YXRlc2BcbjIgOS4zNjg5NTVlLTA5ICAgICAgICAgMS4xMjU4MTMgICAgICAgICAgICAgIDAuOTk5OTgwOCAgICAgIDEuNzM3NjY0ZSsyMCAgICAgICAgICAgICAgICAgICAgICAgIDEuMjgxMzM5XG4zIDEuNTMwNTk1ZS0wMiAgICAgICAgIDIuODEyMjE5ICAgICAgICAgICAgICAwLjk5OTU2MzMgICAgICAxLjY1MDUxNmUrNDEgICAgICAgICAgICAgICAgICAgICAgICAxLjAxODkwMFxuNCA1LjM4Njg1MGUtMjUgICAgICAgIDM4LjU5NzUwMCAgICAgICAgICAgICAgMC45OTk4MTEzICAgICAgMy45MjI0MzFlKzIwICAgICAgICAgICAgICAgICAgICAgICAgMS40MjEzOTRcbiAgYFBlcmNlbnQgQmVsb3cgUG92ZXJ0eSBMZXZlbGAgYFBlciBDYXBpdGEgSW5jb21lYCBgUGVyY2VudCBVbmVtcGxveW1lbnRgXG4yICAgICAgICAgICAgICAgICAgICAgIDEuMzIxNTQ0ICAgICAgICAgICAwLjk5OTc5OTUgICAgICAgICAgICAgIDAuNzg3Nzk3MFxuMyAgICAgICAgICAgICAgICAgICAgICAxLjIzMjY0NiAgICAgICAgICAgMC45OTk3NTQ5ICAgICAgICAgICAgICAwLjQ5NDg0NDZcbjQgICAgICAgICAgICAgICAgICAgICAgMS42MTY0MTMgICAgICAgICAgIDAuOTk5OTkxOSAgICAgICAgICAgICAgMC43NDAyODczXG4ifQ== -->
-<pre><code>   (Intercept) log(`Land Area`) `Num of Hospital Beds` crimes_per_person `Percent High School Graduates`
-2 9.368955e-09         1.125813              0.9999808      1.737664e+20                        1.281339
-3 1.530595e-02         2.812219              0.9995633      1.650516e+41                        1.018900
-4 5.386850e-25        38.597500              0.9998113      3.922431e+20                        1.421394
-  `Percent Below Poverty Level` `Per Capita Income` `Percent Unemployment`
-2                      1.321544           0.9997995              0.7877970
-3                      1.232646           0.9997549              0.4948446
-4                      1.616413           0.9999919              0.7402873</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiICAgKEludGVyY2VwdCkgbG9nKGBMYW5kIEFyZWFgKSBiZWRzX3Blcl9wZXJzb24gY3JpbWVzX3Blcl9wZXJzb24gYFBlcmNlbnQgSGlnaCBTY2hvb2wgR3JhZHVhdGVzYCBgUGVyY2VudCBCZWxvdyBQb3ZlcnR5IExldmVsYFxuMiA0LjA0OTQzNGUtMTAgICAgICAgICAxLjMxMjIyOSAgICAzLjM1NzgyMWUrNDUgICAgICA1LjI5NDYyNWUrMjYgICAgICAgICAgICAgICAgICAgICAgICAxLjMxNDEzMSAgICAgICAgICAgICAgICAgICAgICAxLjIzNzUwOVxuMyAxLjYzNDg1NGUtMDIgICAgICAgICAyLjUzNjQ2NiAgICA2LjMxMDU4OWUtNDYgICAgICAxLjQ3MTA3MGUrNDYgICAgICAgICAgICAgICAgICAgICAgICAxLjA2OTUzMyAgICAgICAgICAgICAgICAgICAgICAxLjEyODI3NlxuNCA3LjQ3MTEzMGUtMjggICAgICAgIDM4LjU5NDc4NyAgICAxLjQzODM5NGUtMTUgICAgICAzLjYyODk2MGUrMzIgICAgICAgICAgICAgICAgICAgICAgICAxLjU0ODMzNyAgICAgICAgICAgICAgICAgICAgICAxLjUwNTA2NVxuICBgUGVyIENhcGl0YSBJbmNvbWVgIGBQZXJjZW50IFVuZW1wbG95bWVudGBcbjIgICAgICAgICAgIDAuOTk5NzY1MSAgICAgICAgICAgICAgMC44MzM2NDIxXG4zICAgICAgICAgICAwLjk5OTU3NTUgICAgICAgICAgICAgIDAuNTA2MzI5OVxuNCAgICAgICAgICAgMC45OTk4ODMxICAgICAgICAgICAgICAwLjg0NzgwOTdcbiJ9 -->
+<pre><code>   (Intercept) log(`Land Area`) beds_per_person crimes_per_person `Percent High School Graduates` `Percent Below Poverty Level`
+2 4.049434e-10         1.312229    3.357821e+45      5.294625e+26                        1.314131                      1.237509
+3 1.634854e-02         2.536466    6.310589e-46      1.471070e+46                        1.069533                      1.128276
+4 7.471130e-28        38.594787    1.438394e-15      3.628960e+32                        1.548337                      1.505065
+  `Per Capita Income` `Percent Unemployment`
+2           0.9997651              0.8336421
+3           0.9995755              0.5063299
+4           0.9998831              0.8478097</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>This is very interesting to see. Although many of our coefficients were significant, many of there effects are extremely close to 1. As a reminder, the interpretation of a given coefficient Blj is that assuming that a region is either NE or region l, if we increase x_j by 1 and hold all other features fixed, the odds that the outcome is region j increases by a multiplicative factor of B_lj. Therefore, if B_lj is close to 1, the odds will not change by a large amount in response to a change in x_j.</p>
-<p>From this, we see that for Number of Hospital Beds, and Per Capita Income, all of these variables seem nearly inconsequential. Land Area, Percent High School Graduates, Percent Below Poverty Level, and Percent Unemployment are slightly more important. But crimes per person has tens of orders of magnitude more importance than all of the other variables, to the extent that the odds seem entirely determined by this feature.</p>
-<p>Let’s do some Likelihood ratio tests to gauge the collective relevance of certain variables in our model. First, let’s test a model only using crimes_per_person vs. using all other variables</p>
+<p>From this, we see that for Percent Unemployment and Per Capita Income, Land Area, Percent High School Graduates, Percent Below Poverty Level, these variables seem nearly inconsequential. But crimes per person and beds_per_person has tens of orders of magnitude more importance than all of the other variables, to the extent that the odds seem entirely determined by this feature.</p>
+<p>Let’s do some Likelihood ratio tests to gauge the collective relevance of certain variables in our model. First, let’s test a model only using crimes_per_person and beds_per_person vs. using all other variables</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubW9kX3JlZCA8LSBtdWx0aW5vbShgR2VvZ3JhcGhpYyBSZWdpb25gIH4gY3JpbWVzX3Blcl9wZXJzb24sIGRhdGEgPSB0cmFpbl9jcmltZSlcbmBgYCJ9 -->
-<pre class="r"><code>mod_red &lt;- multinom(`Geographic Region` ~ crimes_per_person, data = train_crime)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubW9kX3JlZCA8LSBtdWx0aW5vbShgR2VvZ3JhcGhpYyBSZWdpb25gIH4gY3JpbWVzX3Blcl9wZXJzb24gKyBiZWRzX3Blcl9wZXJzb24sIGRhdGEgPSB0cmFpbl9jcmltZSlcbmBgYCJ9 -->
+<pre class="r"><code>mod_red &lt;- multinom(`Geographic Region` ~ crimes_per_person + beds_per_person, data = train_crime)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiIyB3ZWlnaHRzOiAgMTIgKDYgdmFyaWFibGUpXG5pbml0aWFsICB2YWx1ZSAyNzcuMjU4ODcyIFxuaXRlciAgMTAgdmFsdWUgMjUzLjg0MDA2MlxuaXRlciAgMjAgdmFsdWUgMjQ5LjQ4MjgwMlxuaXRlciAgMzAgdmFsdWUgMjQ1LjEwMDQ3NVxuaXRlciAgNDAgdmFsdWUgMjQyLjk1ODg2NlxuaXRlciAgNTAgdmFsdWUgMjQyLjIzNjYxN1xuaXRlciAgNjAgdmFsdWUgMjQxLjkyMjA1OVxuaXRlciAgNzAgdmFsdWUgMjQxLjYzMDc1MFxuaXRlciAgODAgdmFsdWUgMjQxLjYwMjU0N1xuZmluYWwgIHZhbHVlIDI0MS42MDI0NjIgXG5jb252ZXJnZWRcbiJ9 -->
-<pre><code># weights:  12 (6 variable)
+<!-- rnb-output-begin eyJkYXRhIjoiIyB3ZWlnaHRzOiAgMTYgKDkgdmFyaWFibGUpXG5pbml0aWFsICB2YWx1ZSAyNzcuMjU4ODcyIFxuaXRlciAgMTAgdmFsdWUgMjUzLjcxNDAzNlxuaXRlciAgMjAgdmFsdWUgMjQxLjE3NzA3MFxuaXRlciAgMzAgdmFsdWUgMjQwLjI1Njg5OFxuaXRlciAgNDAgdmFsdWUgMjM4LjU1MzExMlxuaXRlciAgNTAgdmFsdWUgMjM3Ljc1MDk3OFxuaXRlciAgNjAgdmFsdWUgMjM3LjEzODM3NFxuaXRlciAgNzAgdmFsdWUgMjM2LjYyNjQwMlxuaXRlciAgODAgdmFsdWUgMjM2LjExMjkyM1xuaXRlciAgOTAgdmFsdWUgMjM1LjYyMjYwNVxuaXRlciAxMDAgdmFsdWUgMjM1LjE5NTE2NVxuZmluYWwgIHZhbHVlIDIzNS4xOTUxNjUgXG5zdG9wcGVkIGFmdGVyIDEwMCBpdGVyYXRpb25zXG4ifQ== -->
+<pre><code># weights:  16 (9 variable)
 initial  value 277.258872 
-iter  10 value 253.840062
-iter  20 value 249.482802
-iter  30 value 245.100475
-iter  40 value 242.958866
-iter  50 value 242.236617
-iter  60 value 241.922059
-iter  70 value 241.630750
-iter  80 value 241.602547
-final  value 241.602462 
-converged</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShtb2RfcmVkKVxuYGBgIn0= -->
-<pre class="r"><code>summary(mod_red)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiQ2FsbDpcbm11bHRpbm9tKGZvcm11bGEgPSBgR2VvZ3JhcGhpYyBSZWdpb25gIH4gY3JpbWVzX3Blcl9wZXJzb24sIGRhdGEgPSB0cmFpbl9jcmltZSlcblxuQ29lZmZpY2llbnRzOlxuICAoSW50ZXJjZXB0KSBjcmltZXNfcGVyX3BlcnNvblxuMiAgIC0yLjEzMjczNCAgICAgICAgICA0OC44MDIzNlxuMyAgIC0zLjkzNzU1MCAgICAgICAgICA4Mi4zODcwOFxuNCAgIC0yLjc3NDQ5NyAgICAgICAgICA1My4yNDg1NVxuXG5TdGQuIEVycm9yczpcbiAgKEludGVyY2VwdCkgY3JpbWVzX3Blcl9wZXJzb25cbjIgICAwLjY1NDkxNDIgICAgICAgICAgMTMuMzczMDJcbjMgICAwLjcyNDg4MTQgICAgICAgICAgMTMuODU3MzdcbjQgICAwLjcyNjg5NTUgICAgICAgICAgMTQuMjg4ODJcblxuUmVzaWR1YWwgRGV2aWFuY2U6IDQ4My4yMDQ5IFxuQUlDOiA0OTUuMjA0OSBcbiJ9 -->
-<pre><code>Call:
-multinom(formula = `Geographic Region` ~ crimes_per_person, data = train_crime)
-
-Coefficients:
-  (Intercept) crimes_per_person
-2   -2.132734          48.80236
-3   -3.937550          82.38708
-4   -2.774497          53.24855
-
-Std. Errors:
-  (Intercept) crimes_per_person
-2   0.6549142          13.37302
-3   0.7248814          13.85737
-4   0.7268955          14.28882
-
-Residual Deviance: 483.2049 
-AIC: 495.2049 </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xSVFxuYW5vdmEobW9kX3JlZCwgbW9kMCwgdGVzdD1cIkNoaXNxXCIpXG5gYGAifQ== -->
-<pre class="r"><code>#LRT
-anova(mod_red, mod0, test=&quot;Chisq&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbIkFub3ZhIiwiZGF0YS5mcmFtZSJdLCJucm93IjoyLCJuY29sIjo3fSwicmRmIjoiSDRzSUFBQUFBQUFBQTJWVHdXNFRNUkIxMDRRbEsxRmFjVUhpd0J4Ym9helVWa0tvcDlCRXBFZ3Bpa0lybFFNaVp0Zlp0ZXExVjdhVDBndElGUi9BTnlET1hQa2Evb0V2S0l5M2RxUXNpU3g3M3N6enZKbnhUb2NYaC9GRlRBalpKRzM4YjNid1NEcm5aNjk2THdocHQ5RFlRTGpyOWs4WTlBZ1BFYTV0WEMzdjJFazFMNW41VURIdGxsSFNPMzRLbGUvT3hsUm04Rkl6T3R1RFp6QjdzeWhCemVGRW1ZcGJLdUNZWldhR2p2OHVjY0VUcGxNbUxaend2SUMzYWFHVWdKR20yWUphVnJOV0VjZE1xQ3VZcUNYVDlockdiTWxFOE1PQXVsVHdXcWFxWkd1c2M4bktTcWpyRW8wWkt0NXlaZlZ2dnJrbWtQNE5DYjg3L1BQaDZQMXkyL2J0enE4ZjBkZDNqVFlRdjkvYmg2V0JnOEQ2OHNlNW91LzlnL1hiVm5nMmVLcC9QMzdleEZmUjYxUG9TSXB0OHFtakFKNnFqQWx2ZEtmTThDeUJiTzZCMkFORHR2UkkrNHdaRzdnQU1BeWg5OGRUTUpiYXhOdlJSTzhPQ3I3WEVCRVZqR1pjNW8wTzlNYjhrZ21PVThwQVU4c1Y0SlNzY2VNK1hRakxwU281VHJ3V2EySlBlb0xxS2lVTk80SVJVN21tVmNGVG1MS2M0enRhVDl2VjZpb0o5VCtvRXp0bnZhODNLUlhVaENZRk1NNm9wY2xjSXgrdDIyWkpxa0xCRWtrdDk4WTdEZktHYmdBUEY5SXB5WHBwc1pDWHZYMlh3S3NoWHAxWHRqcEhkeWxiZi8xVm5mQmdtTXk1WkVHN29COVhzOXpDaXV1Q2swcHpHVVlXSTJvU3EvRHpDVWlxUkVEcTJzanRQNmZpdkJyYUF3QUEifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Model"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Resid. df"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Resid. Dev"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Test"],"name":[4],"type":["chr"],"align":["left"]},{"label":["   Df"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["LR stat."],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Pr(Chi)"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"crimes_per_person","2":"594","3":"483.2049","4":"","5":"NA","6":"NA","7":"NA"},{"1":"log(`Land Area`) + `Num of Hospital Beds` + crimes_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Per Capita Income` + `Percent Unemployment`","2":"576","3":"321.1073","4":"1 vs 2","5":"18","6":"162.0976","7":"0"}],"options":{"columns":{"min":{},"max":[10],"total":[7]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>We can see that the full model, according to our test, better fits our data at any reasonable alpha-level. Now, let’s try testing if number of hospital beds and per capita income have coefficients of zero in our model.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubW9kX3JlZCA8LSBtdWx0aW5vbShgR2VvZ3JhcGhpYyBSZWdpb25gIH4gbG9nKGBMYW5kIEFyZWFgKSArIGNyaW1lc19wZXJfcGVyc29uICsgYFBlcmNlbnQgSGlnaCBTY2hvb2wgR3JhZHVhdGVzYCArIGBQZXJjZW50IEJlbG93IFBvdmVydHkgTGV2ZWxgICsgYFBlcmNlbnQgVW5lbXBsb3ltZW50YCwgZGF0YSA9IHRyYWluX2NyaW1lKVxuYGBgIn0= -->
-<pre class="r"><code>mod_red &lt;- multinom(`Geographic Region` ~ log(`Land Area`) + crimes_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Percent Unemployment`, data = train_crime)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiIyB3ZWlnaHRzOiAgMjggKDE4IHZhcmlhYmxlKVxuaW5pdGlhbCAgdmFsdWUgMjc3LjI1ODg3MiBcbml0ZXIgIDEwIHZhbHVlIDIyOS44NDk1ODdcbml0ZXIgIDIwIHZhbHVlIDE4OS40OTA2NjZcbml0ZXIgIDMwIHZhbHVlIDE4MC4zNzIwMzlcbml0ZXIgIDQwIHZhbHVlIDE3OS4wODI4OThcbml0ZXIgIDUwIHZhbHVlIDE3OC44MDc1MTZcbml0ZXIgIDYwIHZhbHVlIDE3OC4wMTI1NzRcbml0ZXIgIDcwIHZhbHVlIDE3Ny4wODA4NTJcbml0ZXIgIDgwIHZhbHVlIDE3Ni43MzI0Mjdcbml0ZXIgIDkwIHZhbHVlIDE3Ni43MDkyMjVcbml0ZXIgMTAwIHZhbHVlIDE3Ni42ODcwMTNcbmZpbmFsICB2YWx1ZSAxNzYuNjg3MDEzIFxuc3RvcHBlZCBhZnRlciAxMDAgaXRlcmF0aW9uc1xuIn0= -->
-<pre><code># weights:  28 (18 variable)
-initial  value 277.258872 
-iter  10 value 229.849587
-iter  20 value 189.490666
-iter  30 value 180.372039
-iter  40 value 179.082898
-iter  50 value 178.807516
-iter  60 value 178.012574
-iter  70 value 177.080852
-iter  80 value 176.732427
-iter  90 value 176.709225
-iter 100 value 176.687013
-final  value 176.687013 
+iter  10 value 253.714036
+iter  20 value 241.177070
+iter  30 value 240.256898
+iter  40 value 238.553112
+iter  50 value 237.750978
+iter  60 value 237.138374
+iter  70 value 236.626402
+iter  80 value 236.112923
+iter  90 value 235.622605
+iter 100 value 235.195165
+final  value 235.195165 
 stopped after 100 iterations</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShtb2RfcmVkKVxuYGBgIn0= -->
 <pre class="r"><code>summary(mod_red)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiQ2FsbDpcbm11bHRpbm9tKGZvcm11bGEgPSBgR2VvZ3JhcGhpYyBSZWdpb25gIH4gbG9nKGBMYW5kIEFyZWFgKSArIGNyaW1lc19wZXJfcGVyc29uICsgXG4gICAgYFBlcmNlbnQgSGlnaCBTY2hvb2wgR3JhZHVhdGVzYCArIGBQZXJjZW50IEJlbG93IFBvdmVydHkgTGV2ZWxgICsgXG4gICAgYFBlcmNlbnQgVW5lbXBsb3ltZW50YCwgZGF0YSA9IHRyYWluX2NyaW1lKVxuXG5Db2VmZmljaWVudHM6XG4gIChJbnRlcmNlcHQpIGxvZyhgTGFuZCBBcmVhYCkgY3JpbWVzX3Blcl9wZXJzb24gYFBlcmNlbnQgSGlnaCBTY2hvb2wgR3JhZHVhdGVzYCBgUGVyY2VudCBCZWxvdyBQb3ZlcnR5IExldmVsYCBgUGVyY2VudCBVbmVtcGxveW1lbnRgXG4yICAtMTcuODA5MTMwICAgICAgICAgMC4zMDA1NTYgICAgICAgICAgMzUuNDk0NjUgICAgICAgICAgICAgICAgICAgICAgMC4xNzQ4ODcwOSAgICAgICAgICAgICAgICAgICAgIDAuMzQ4Nzc2MSAgICAgICAgICAgICAtMC4yNTAyNzg5XG4zICAgLTYuNjY5OTEyICAgICAgICAgMS4xMDI5NjUgICAgICAgICAgNjQuODU3OTYgICAgICAgICAgICAgICAgICAgICAtMC4wMTUxMTA3OSAgICAgICAgICAgICAgICAgICAgIDAuMjk3NzEzNCAgICAgICAgICAgICAtMC42NjM5NjExXG40ICAtNTAuNjA0ODI5ICAgICAgICAgMy41MjE5OTkgICAgICAgICAgMzcuMzg2MzcgICAgICAgICAgICAgICAgICAgICAgMC4yOTY3ODM3NyAgICAgICAgICAgICAgICAgICAgIDAuNDI5MjY3NiAgICAgICAgICAgICAtMC4yNjQ2ODk1XG5cblN0ZC4gRXJyb3JzOlxuICAoSW50ZXJjZXB0KSBsb2coYExhbmQgQXJlYWApIGNyaW1lc19wZXJfcGVyc29uIGBQZXJjZW50IEhpZ2ggU2Nob29sIEdyYWR1YXRlc2AgYFBlcmNlbnQgQmVsb3cgUG92ZXJ0eSBMZXZlbGAgYFBlcmNlbnQgVW5lbXBsb3ltZW50YFxuMiAgICA1Ljc2NjY4NCAgICAgICAgMC4zNzUxNzU5ICAgICAgICAgIDguMTU4NDA2ICAgICAgICAgICAgICAgICAgICAgIDAuMDYxMzAxNzggICAgICAgICAgICAgICAgICAgICAwLjExMzI1NzAgICAgICAgICAgICAgIDAuMTUwMzY4MFxuMyAgICA1LjM3Mzg5OCAgICAgICAgMC4zOTc1Mjg3ICAgICAgICAgIDcuNTU3NTc5ICAgICAgICAgICAgICAgICAgICAgIDAuMDU1OTQ5ODcgICAgICAgICAgICAgICAgICAgICAwLjExMTMxMDIgICAgICAgICAgICAgIDAuMTYyMjUwMVxuNCAgICA5LjgyNTAwNSAgICAgICAgMC42MTI3MzMyICAgICAgICAgIDguNjQ1MjY1ICAgICAgICAgICAgICAgICAgICAgIDAuMDkzNTEyNjkgICAgICAgICAgICAgICAgICAgICAwLjEzOTE5NDAgICAgICAgICAgICAgIDAuMTk1NjgwN1xuXG5SZXNpZHVhbCBEZXZpYW5jZTogMzUzLjM3NCBcbkFJQzogMzg5LjM3NCBcbiJ9 -->
+<!-- rnb-output-begin eyJkYXRhIjoiQ2FsbDpcbm11bHRpbm9tKGZvcm11bGEgPSBgR2VvZ3JhcGhpYyBSZWdpb25gIH4gY3JpbWVzX3Blcl9wZXJzb24gKyBcbiAgICBiZWRzX3Blcl9wZXJzb24sIGRhdGEgPSB0cmFpbl9jcmltZSlcblxuQ29lZmZpY2llbnRzOlxuICAoSW50ZXJjZXB0KSBjcmltZXNfcGVyX3BlcnNvbiBiZWRzX3Blcl9wZXJzb25cbjIgICAtMi41ODg4MDkgICAgICAgICAgNTEuMTgxNjkgICAgICAgIDk5LjU3MDY5XG4zICAgLTQuMDcxMTYwICAgICAgICAgIDg4LjMzNTgxICAgICAgIC01MS44MDc3OFxuNCAgIC0yLjU0MjA0MyAgICAgICAgICA1NC43MDM2OSAgICAgICAtODIuNDI5MzdcblxuU3RkLiBFcnJvcnM6XG4gIChJbnRlcmNlcHQpIGNyaW1lc19wZXJfcGVyc29uIGJlZHNfcGVyX3BlcnNvblxuMiAgIDAuNzAzOTE4OSAgICAgICAgICAxNC4yMDI1MCAgICAgICAgMTE3Ljc2ODRcbjMgICAwLjc2MjY3MTYgICAgICAgICAgMTQuOTMwODggICAgICAgIDEyNy45NTU3XG40ICAgMC43Njc1NTgwICAgICAgICAgIDE1LjMzMDU5ICAgICAgICAxNDMuODY3NVxuXG5SZXNpZHVhbCBEZXZpYW5jZTogNDcwLjM5MDMgXG5BSUM6IDQ4OC4zOTAzIFxuIn0= -->
 <pre><code>Call:
-multinom(formula = `Geographic Region` ~ log(`Land Area`) + crimes_per_person + 
-    `Percent High School Graduates` + `Percent Below Poverty Level` + 
-    `Percent Unemployment`, data = train_crime)
+multinom(formula = `Geographic Region` ~ crimes_per_person + 
+    beds_per_person, data = train_crime)
 
 Coefficients:
-  (Intercept) log(`Land Area`) crimes_per_person `Percent High School Graduates` `Percent Below Poverty Level` `Percent Unemployment`
-2  -17.809130         0.300556          35.49465                      0.17488709                     0.3487761             -0.2502789
-3   -6.669912         1.102965          64.85796                     -0.01511079                     0.2977134             -0.6639611
-4  -50.604829         3.521999          37.38637                      0.29678377                     0.4292676             -0.2646895
+  (Intercept) crimes_per_person beds_per_person
+2   -2.588809          51.18169        99.57069
+3   -4.071160          88.33581       -51.80778
+4   -2.542043          54.70369       -82.42937
 
 Std. Errors:
-  (Intercept) log(`Land Area`) crimes_per_person `Percent High School Graduates` `Percent Below Poverty Level` `Percent Unemployment`
-2    5.766684        0.3751759          8.158406                      0.06130178                     0.1132570              0.1503680
-3    5.373898        0.3975287          7.557579                      0.05594987                     0.1113102              0.1622501
-4    9.825005        0.6127332          8.645265                      0.09351269                     0.1391940              0.1956807
+  (Intercept) crimes_per_person beds_per_person
+2   0.7039189          14.20250        117.7684
+3   0.7626716          14.93088        127.9557
+4   0.7675580          15.33059        143.8675
 
-Residual Deviance: 353.374 
-AIC: 389.374 </code></pre>
+Residual Deviance: 470.3903 
+AIC: 488.3903 </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xSVFxuYW5vdmEobW9kX3JlZCwgbW9kMCwgdGVzdD1cIkNoaXNxXCIpXG5gYGAifQ== -->
 <pre class="r"><code>#LRT
 anova(mod_red, mod0, test=&quot;Chisq&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbIkFub3ZhIiwiZGF0YS5mcmFtZSJdLCJucm93IjoyLCJuY29sIjo3fSwicmRmIjoiSDRzSUFBQUFBQUFBQTdWVHoyc1RRUlNlcG9sckZxeUtDSUtYb1hoSWtDeFdMLzRBaWJiWUNxbUUyRUk5bVhIM1pYZkk3TXd5TTBudHFWQzgrUTk0RnM5ZS9TZjZ0NGduVDFKOXU1MEp6U0xlM0dXWWVkK2I5OTczdnJjNzJqcDRFQjZFaEpCVjBzUjN0WVZIMHRyZmU5RjdTRWl6Z2NZS3d1MXlmNCtYYnVBaHdIVU5WOE01am9WS08rTUJrd2w5cG9HTnUvUXVqVFhQd2J3dFFKZkxLSW5ZZUFnNkJtbnBEazh6K2pyT2xCSjBXN05reGl5WThjVWJ6MEdvUXpwVWM5RDJpQTVnRG1MSnZ5OGhMNFE2eXRFWU94cGYvMEpqL0dxV1V6V2hPOG9VM0RLQmlaT3Ewdi9qUnpkWldZcStsTEhLNFIrc0NWa3JSZXlmM0NzbEovMFQ0cDl6Zkg3elYrUDA0Mm5mWHYvMkpmandwaVk2Y2Z1bERUbzM5TDZQT3Y1UnVvTFAvVnZMMlJaNGYzMzlaK2ZKcHpyKzlQdjBUdmRSbGZiaXpGdVNvVXl1ZE9EQlhaV0FjRVo3QklZbkVVMG1EZ2dkc0FWemh6VDN3RmdmU3luZDhsY3ZEMGJVV0dZalp3ZEQzZG5NZUxkR0lzaUFKVnltTlFWNkF6NEZ3WEZLQ2RYTWNrVnhTdGFVNDk2ZENjdWx5amxPdkNKclFoZDBHOWtWU2hwNFRMZEJwWm9WR1kvcENGS3VaSzFzVzZ2RHlQZC9wU3BjT3F0OVdhUllNT05GOG1DWU1NdWlpY1o0dE03cUxha0NDVXNNYXBSL1ZLc1d2S0pyd05XWkxKa2t2VGlieVdsdm95emcyQkRIempGYm5JUHprbzNmTGxYTGZ6QWdVeTdCY3hmczNXS1dhOWh4MVhCVWFDNzl5RUpFVFdRVi9qNGVpWlh3U05VYk9mc0RGK0R1UzBnRUFBQT0ifQ== -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbIkFub3ZhIiwiZGF0YS5mcmFtZSJdLCJucm93IjoyLCJuY29sIjo3fSwicmRmIjoiSDRzSUFBQUFBQUFBQTIxU3pXNFRNUkIyODhPU2xTaElITG1NeEtVVnlrcUZDK0tBMGlhaUlLVlNGRnFwTitMc1RySldIWHRsTzJselFLQ0tFNC9CaFdmZ0VaRGdMWGdBTGtpY0NyT3BIVFVMdTdMcytlWWJ6emN6SHZaT244U25NV09zemhyMDE1dDBaTTJUNHhmdHA0dzFhbVJzRWR3cTl3c2kzYWREUk9zZXJacDNQRXlObUtGOVU2QXBsOVVLSHNFWXM1dUlwMzZXZXJvejZuT1Z3YjVCUHRyOWwwbkkvKzRiRGRDa3FCeThGTk1jWHFlNTFoSU9EYy9tM0tFZDNXUWNvTlRuTU5BTE5HNEpmVnlnREg3bzhrSTREcTlVcW1lNEVYV2ljRlpJdlp5Uk1TS3AyMldGbmN1THNoK3NjOG5DZDQyL25Uei8rcjMrcStONjN6NFUzV1dsSTh6dnQvWmdZZUZ4aUhyM3MzUkZuenJKNW0xcmZIenc0K09YOTcrcitKcTlPWkNtNHRRbW56b0s0SkhPVUhxak5VUXJzZ1N5aVFkaUQvUnc0WkhHTVZvWFlnR2dGNmkzKzBPd2pydkUyOUhBN0hSenNWc1JFZVhJTTZHbWxRNjArK0lNcGFBcFpXQzRFeHBvU3M2Q25zRFJYRHFoOUV4d0NTdXhOdlpCRDBoZG9aWEZaM0NJZW1wNGtZc1VoamdWOUlBMjA3YU1QazlDL1hkV2lVdm5hdDlzVWlxNURVMEtZSnh4eDVPSm9YaXlycW9sNllJRUt3cXFsYys5V1FuZU1oWGc3bHlWU3JKMm1zL1ZXWHV2VE9EVk1LL09LMXVmbyt1VXRULytxbVo0TUtpbVFtSFFMdmw0UGN0dHFuaFZjRklZb2NMSVlrSnQ0clRqZ1JlbldnWmtWUnU3K2d2MmJJcTE1UU1BQUE9PSJ9 -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Model"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Resid. df"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Resid. Dev"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Test"],"name":[4],"type":["chr"],"align":["left"]},{"label":["   Df"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["LR stat."],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Pr(Chi)"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"log(`Land Area`) + crimes_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Percent Unemployment`","2":"582","3":"353.3740","4":"","5":"NA","6":"NA","7":"NA"},{"1":"log(`Land Area`) + `Num of Hospital Beds` + crimes_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Per Capita Income` + `Percent Unemployment`","2":"576","3":"321.1073","4":"1 vs 2","5":"6","6":"32.26669","7":"1.450468e-05"}],"options":{"columns":{"min":{},"max":[10],"total":[7]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
+{"columns":[{"label":["Model"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Resid. df"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Resid. Dev"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Test"],"name":[4],"type":["chr"],"align":["left"]},{"label":["   Df"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["LR stat."],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Pr(Chi)"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"crimes_per_person + beds_per_person","2":"591","3":"470.3903","4":"","5":"NA","6":"NA","7":"NA"},{"1":"log(`Land Area`) + beds_per_person + crimes_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Per Capita Income` + `Percent Unemployment`","2":"576","3":"324.2999","4":"1 vs 2","5":"15","6":"146.0904","7":"0"}],"options":{"columns":{"min":{},"max":[10],"total":[7]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
   </script>
 </div>
 <!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>With an alpha-level of 0.05, we reject the null hypothesis that number of hospital beds and per capita income have coefficients of zero in our model. So, we may keep these variables in our model, although they seem to add little relative weight to the model decision.</p>
+<p>We can see that the full model, according to our test, better fits our data at any reasonable alpha-level. Now, let’s try testing if per capita income has a coefficient of zero in our model.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubW9kX3JlZCA8LSBtdWx0aW5vbShgR2VvZ3JhcGhpYyBSZWdpb25gIH4gbG9nKGBMYW5kIEFyZWFgKSArIGNyaW1lc19wZXJfcGVyc29uICsgYmVkc19wZXJfcGVyc29uICsgYFBlcmNlbnQgSGlnaCBTY2hvb2wgR3JhZHVhdGVzYCArIGBQZXJjZW50IEJlbG93IFBvdmVydHkgTGV2ZWxgICsgYFBlcmNlbnQgVW5lbXBsb3ltZW50YCwgZGF0YSA9IHRyYWluX2NyaW1lKVxuYGBgIn0= -->
+<pre class="r"><code>mod_red &lt;- multinom(`Geographic Region` ~ log(`Land Area`) + crimes_per_person + beds_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Percent Unemployment`, data = train_crime)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIyB3ZWlnaHRzOiAgMzIgKDIxIHZhcmlhYmxlKVxuaW5pdGlhbCAgdmFsdWUgMjc3LjI1ODg3MiBcbml0ZXIgIDEwIHZhbHVlIDIyOS44NDk0NDhcbml0ZXIgIDIwIHZhbHVlIDE4OS4zOTUxNTVcbml0ZXIgIDMwIHZhbHVlIDE3OS45NDA0OTFcbml0ZXIgIDQwIHZhbHVlIDE3Ny4xNzIxNDVcbml0ZXIgIDUwIHZhbHVlIDE3Ni41OTgxMjBcbml0ZXIgIDYwIHZhbHVlIDE3NS43NDMwMTRcbml0ZXIgIDcwIHZhbHVlIDE3NC45MTI4ODhcbml0ZXIgIDgwIHZhbHVlIDE3Mi4zNTAyMjFcbml0ZXIgIDkwIHZhbHVlIDE3MC40NjcyNDVcbml0ZXIgMTAwIHZhbHVlIDE3MC4zOTg0MTZcbmZpbmFsICB2YWx1ZSAxNzAuMzk4NDE2IFxuc3RvcHBlZCBhZnRlciAxMDAgaXRlcmF0aW9uc1xuIn0= -->
+<pre><code># weights:  32 (21 variable)
+initial  value 277.258872 
+iter  10 value 229.849448
+iter  20 value 189.395155
+iter  30 value 179.940491
+iter  40 value 177.172145
+iter  50 value 176.598120
+iter  60 value 175.743014
+iter  70 value 174.912888
+iter  80 value 172.350221
+iter  90 value 170.467245
+iter 100 value 170.398416
+final  value 170.398416 
+stopped after 100 iterations</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShtb2RfcmVkKVxuYGBgIn0= -->
+<pre class="r"><code>summary(mod_red)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiQ2FsbDpcbm11bHRpbm9tKGZvcm11bGEgPSBgR2VvZ3JhcGhpYyBSZWdpb25gIH4gbG9nKGBMYW5kIEFyZWFgKSArIGNyaW1lc19wZXJfcGVyc29uICsgXG4gICAgYmVkc19wZXJfcGVyc29uICsgYFBlcmNlbnQgSGlnaCBTY2hvb2wgR3JhZHVhdGVzYCArIGBQZXJjZW50IEJlbG93IFBvdmVydHkgTGV2ZWxgICsgXG4gICAgYFBlcmNlbnQgVW5lbXBsb3ltZW50YCwgZGF0YSA9IHRyYWluX2NyaW1lKVxuXG5Db2VmZmljaWVudHM6XG4gIChJbnRlcmNlcHQpIGxvZyhgTGFuZCBBcmVhYCkgY3JpbWVzX3Blcl9wZXJzb24gYmVkc19wZXJfcGVyc29uIGBQZXJjZW50IEhpZ2ggU2Nob29sIEdyYWR1YXRlc2AgYFBlcmNlbnQgQmVsb3cgUG92ZXJ0eSBMZXZlbGBcbjIgIC0yMS41OTQ3OTIgICAgICAgIDAuNDY2OTUwOCAgICAgICAgICA1NC43NzkyNiAgICAgICAxMDYuNDE0MjEgICAgICAgICAgICAgICAgICAgICAgMC4xOTQ2MDIzOSAgICAgICAgICAgICAgICAgICAgIDAuMzA5MTE0MFxuMyAgIC03LjQzMzczOCAgICAgICAgMS4yMTA4MzAzICAgICAgICAgIDkyLjg1NzI4ICAgICAgLTExOS4wMDIwNyAgICAgICAgICAgICAgICAgICAgIC0wLjAyMDk1MjUxICAgICAgICAgICAgICAgICAgICAgMC4yODM4NTM3XG40ICAtNTUuOTkzMjk2ICAgICAgICAzLjc0NzYwMTEgICAgICAgICAgNzMuODkzNjggICAgICAgLTMxLjEyODA5ICAgICAgICAgICAgICAgICAgICAgIDAuMzIzNjAwOTAgICAgICAgICAgICAgICAgICAgICAwLjQwNTU3NzdcbiAgYFBlcmNlbnQgVW5lbXBsb3ltZW50YFxuMiAgICAgICAgICAgICAtMC4yMDIyMDIzXG4zICAgICAgICAgICAgIC0wLjcwMDcwNzZcbjQgICAgICAgICAgICAgLTAuMjIyNTExNFxuXG5TdGQuIEVycm9yczpcbiAgKEludGVyY2VwdCkgbG9nKGBMYW5kIEFyZWFgKSBjcmltZXNfcGVyX3BlcnNvbiBiZWRzX3Blcl9wZXJzb24gYFBlcmNlbnQgSGlnaCBTY2hvb2wgR3JhZHVhdGVzYCBgUGVyY2VudCBCZWxvdyBQb3ZlcnR5IExldmVsYFxuMiAgICA2LjA1MzQ2MSAgICAgICAgMC4zODM3MzM1ICAgICAgICAgIDguMzc4NjI4ICAgICAgIDAuMjUxNDQ0MSAgICAgICAgICAgICAgICAgICAgICAwLjA2NDQ5NDAyICAgICAgICAgICAgICAgICAgICAgMC4xMTk5MjA0XG4zICAgIDUuNTM3MTM2ICAgICAgICAwLjQwMzM2NzUgICAgICAgICAgNy41MDEzOTggICAgICAgMC4yMjk5MjExICAgICAgICAgICAgICAgICAgICAgIDAuMDU4MDY0NTUgICAgICAgICAgICAgICAgICAgICAwLjExODAwODNcbjQgICAxMC40NTg0MTQgICAgICAgIDAuNjMwMjIwNiAgICAgICAgICA5LjAxMzk5OSAgICAgICAwLjIzMjU5MzkgICAgICAgICAgICAgICAgICAgICAgMC4wOTgyNzEyOSAgICAgICAgICAgICAgICAgICAgIDAuMTQ3MDg2N1xuICBgUGVyY2VudCBVbmVtcGxveW1lbnRgXG4yICAgICAgICAgICAgICAwLjE1NTY3ODFcbjMgICAgICAgICAgICAgIDAuMTcwMzY1MFxuNCAgICAgICAgICAgICAgMC4yMDg4NjIzXG5cblJlc2lkdWFsIERldmlhbmNlOiAzNDAuNzk2OCBcbkFJQzogMzgyLjc5NjggXG4ifQ== -->
+<pre><code>Call:
+multinom(formula = `Geographic Region` ~ log(`Land Area`) + crimes_per_person + 
+    beds_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + 
+    `Percent Unemployment`, data = train_crime)
+
+Coefficients:
+  (Intercept) log(`Land Area`) crimes_per_person beds_per_person `Percent High School Graduates` `Percent Below Poverty Level`
+2  -21.594792        0.4669508          54.77926       106.41421                      0.19460239                     0.3091140
+3   -7.433738        1.2108303          92.85728      -119.00207                     -0.02095251                     0.2838537
+4  -55.993296        3.7476011          73.89368       -31.12809                      0.32360090                     0.4055777
+  `Percent Unemployment`
+2             -0.2022023
+3             -0.7007076
+4             -0.2225114
+
+Std. Errors:
+  (Intercept) log(`Land Area`) crimes_per_person beds_per_person `Percent High School Graduates` `Percent Below Poverty Level`
+2    6.053461        0.3837335          8.378628       0.2514441                      0.06449402                     0.1199204
+3    5.537136        0.4033675          7.501398       0.2299211                      0.05806455                     0.1180083
+4   10.458414        0.6302206          9.013999       0.2325939                      0.09827129                     0.1470867
+  `Percent Unemployment`
+2              0.1556781
+3              0.1703650
+4              0.2088623
+
+Residual Deviance: 340.7968 
+AIC: 382.7968 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xSVFxuYW5vdmEobW9kX3JlZCwgbW9kMCwgdGVzdD1cIkNoaXNxXCIpXG5gYGAifQ== -->
+<pre class="r"><code>#LRT
+anova(mod_red, mod0, test=&quot;Chisq&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbIkFub3ZhIiwiZGF0YS5mcmFtZSJdLCJucm93IjoyLCJuY29sIjo3fSwicmRmIjoiSDRzSUFBQUFBQUFBQTYxVHpXNFRNUkIyMDRSdFZxSWdjVUhpTXVMVUNtWEYzd0gxUW1naUNsSWlSYUdWZWlQTzdtVFhxdGRlMlU3YW5DcFZQQUM4QWhjZUE1QTRjdU5GUU9MQ2dZSTN0U095Vkp6WWxXWFBOek9lYjc3WkhYWVBINFNISVNGa25kVHR1OTZ3UjlJNDJIL2Fla1JJdldhTk5RczN5LzNFQnQyd2g4Q3U2M2JWbk9NTmwrbldxRWRGQWs4VTB0RTIzSUZZc1J6MXl3SlZ1YlFVRmh0alVrRkdBMVF4Q2dQUFdKckJpemlUa3NPZW9zbVVHdFNqUHlOMmtjdGpHTWdaS2pPSEhzNlFyL2dQQk9ZRmwvUGNHaU5IN04wbHhQNG1jUm5WLzBNTU9yUmdoc0p6RWNzYy8wR1hrTTFTei9iWnpWSjkwajRqL3JuQXA3MzNYMTdmL3RBMjNjK3ZpczY4b2o5eCs1VjdNTk53MzJlZGZpMWR3ZHYyeHVwdFMvenU2Y052UDc4WFZmeHhmd3cvUG40aWxmRTNCTFV5dWRLQkIvc3lRZTZNNWhBMVN5SklKZzRJSGRERm1VUHErNmlOendXQXJnL2Q2QTFCRzJvaVp3Y0R0ZFhKMkhhRlJKQWhUWmhJS3dxMGV1d0lPYk5UU2tCUnd5VFlLUmtOY2dMOUtUZE15SnhSRGd1eU9uUkp0eXk3UWdxTk83Q0hNbFcweUZnTVEweVpGSld5VFNXUEk5Ly8xVVhoMHJuWVYwV0tPZFZlSkErR0NUVTBtaWliYjYzemFrdXlzSVNGVGFxVlAxZWprcnltS3NDMXFTaVpKSzA0bTRxalZqbnUwTEVoanAxanRqd0hGeVZydjl4VkRmL0JvRWlaUU0rZDAvRnlscHUyNDBYRFVhR1k4Q01MTGFvakl3MzFjV0VzdVVjV3ZaSHozNjZOQ1haVEJBQUEifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Model"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Resid. df"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Resid. Dev"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Test"],"name":[4],"type":["chr"],"align":["left"]},{"label":["   Df"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["LR stat."],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Pr(Chi)"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"log(`Land Area`) + crimes_per_person + beds_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Percent Unemployment`","2":"579","3":"340.7968","4":"","5":"NA","6":"NA","7":"NA"},{"1":"log(`Land Area`) + beds_per_person + crimes_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Per Capita Income` + `Percent Unemployment`","2":"576","3":"324.2999","4":"1 vs 2","5":"3","6":"16.4969","7":"0.0008967076"}],"options":{"columns":{"min":{},"max":[10],"total":[7]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>With an alpha-level of 0.05, we reject the null hypothesis that per capita income has a coefficient of zero in our model. So, we may keep all of these variables in our model, although some seem to add little relative weight to the model decision.</p>
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiBQb2x5dG9tb3VzIExvZ2lzdGljIFJlZ3Jlc3Npb24gTW9kZWwgdG8gUHJlZGljdCBSZWdpb24gaW4gQ291bnR5IENyaW1lIERhdGFzZXQKYXV0aG9yOiAiQW1pciBJZHJpcyIKb3V0cHV0OgogIHBkZl9kb2N1bWVudDogZGVmYXVsdAogIGh0bWxfbm90ZWJvb2s6IGRlZmF1bHQKLS0tCmBgYHtyfQppZiAoIXJlcXVpcmUoImRwbHlyIikpewogIGluc3RhbGwucGFja2FnZXMoImRwbHlyIikKfQoKaWYgKCFyZXF1aXJlKCJubmV0IikpewogIGluc3RhbGwucGFja2FnZXMoIm5uZXQiKQp9CgpsaWJyYXJ5KGRwbHlyKQpsaWJyYXJ5KG5uZXQpCmBgYAoKCkZpcnN0LCBsZXQncyBsb2FkIHRoZSBkYXRhLgoKYGBge3J9CmNyaW1lIDwtIHJlYWQudGFibGUoIi4uL2RhdGEvQVBQRU5DMDIudHh0Iiwgc2VwPSIiLCBoZWFkZXI9RkFMU0UpClVOSSA8LSAyMjQ0CnNldC5zZWVkKFVOSSkKaW5kZXggPC0gc2FtcGxlKGMoMTo0NDApKQpjcmltZSA8LSBjcmltZVtpbmRleFsxOjI1MF0sXQoKIyBSZW5hbWUgY29sdW1uIG5hbWVzIHRvIHJlZmxlY3QgbWVhbmluZwpjb2x1bW4ubmFtZXMgPC0gYygiSWQiLCAiQ291bnR5IE5hbWUiLCAiU3RhdGUiLCAiTGFuZCBBcmVhIiwgIlRvdGFsIFBvcC4iLCAiUGVyY2VudCBvZiBQb3AuIEFnZSAxOC0zNCIsICJQZXJjZW50IG9mIFBvcC4gQWdlID49IDY1IiwgIk51bSBvZiBBY3RpdmUgUGh5c2ljaWFucyIsICJOdW0gb2YgSG9zcGl0YWwgQmVkcyIsICJUb3RhbCBTZXJpb3VzIENyaW1lcyIsICJQZXJjZW50IEhpZ2ggU2Nob29sIEdyYWR1YXRlcyIsICJQZXJjZW50IEJhY2hlbG9yJ3MgRGVncmVlIiwgIlBlcmNlbnQgQmVsb3cgUG92ZXJ0eSBMZXZlbCIsICJQZXJjZW50IFVuZW1wbG95bWVudCIsICJQZXIgQ2FwaXRhIEluY29tZSIsICJUb3RhbCBwZXJzb25hbCBpbmNvbWUiLCAiR2VvZ3JhcGhpYyBSZWdpb24iKQoKY29sbmFtZXMoY3JpbWUpIDwtIGNvbHVtbi5uYW1lcwoKIyBBZGQgY3JpbWVzIHBlciBwZXJzb24gYXMgY29sdW1uCmNyaW1lc19wZXJfcGVyc29uIDwtIGNyaW1lJGBUb3RhbCBTZXJpb3VzIENyaW1lc2AvY3JpbWUkYFRvdGFsIFBvcC5gCmNyaW1lIDwtIGFzLmRhdGEuZnJhbWUoY2JpbmQoY3JpbWUsIGNyaW1lc19wZXJfcGVyc29uKSkKCmNyaW1lJGBHZW9ncmFwaGljIFJlZ2lvbmAgPC0gYXMuZmFjdG9yKGNyaW1lJGBHZW9ncmFwaGljIFJlZ2lvbmApICNFbnN1cmUgb3VyIG91dGNvbWUgdmFyaWFibGUgaXMgdHJlYXRlZCBhcyBhIGZhY3RvciB2YXJpYWJsZQp3aXRoKGNyaW1lLCBsZXZlbHMoYEdlb2dyYXBoaWMgUmVnaW9uYCkpCgpoZWFkKGNyaW1lKQpgYGAKYGBge3J9CiMgUGxvdCBjcmltZSBwZXIgcGVyc29uCmNyaW1lX3BvcCA8LSBjcmltZVtvcmRlcihjcmltZSRjcmltZXNfcGVyX3BlcnNvbiksIF0KCmJhcnBsb3QoY3JpbWVfcG9wJGNyaW1lc19wZXJfcGVyc29uLCBuYW1lcy5hcmcgPSBjcmltZV9wb3AkYENvdW50eSBOYW1lYCwgeGxhYiA9ICJDb3VudHkiLCB5bGFiID0gIkNyaW1lcyBQZXIgUGVyc29uIiwgbWFpbiA9ICJDcmltZXMgUGVyIFBlcnNvbiBmb3IgZWFjaCBDb3VudHkiKQpgYGAKTm93IHdlIGNhbiBzZWUgd2Ugbm8gbG9uZ2VyIG5lZWQgdG8gbG9nLXRyYW5zZm9ybSB0b3RhbCBjcmltZSBhbmQgcG9wdWxhdGlvbgoKCkFzIGZvdW5kIGluIG91ciBBTk9WQSB0ZXN0cywgdGhlIGZvbGxvd2luZyBwcmVkaWN0b3JzIGhhdmUgc2lnbmlmaWNhbnQgb3IgbmVhci1zaWduaWZpY2FudCBkaWZmZXJlbmNlcyBiZXR3ZWVuIHJlZ2lvbnMsIGF0IGFuIGFscGhhLWxldmVsIG9mIDAuMDUuIFNvLCB3ZSBjYW4gdXNlIHRoZXNlIGluIG91ciBtb2RlbC4KCjxiPiBTaWduaWZpY2FudCA8L2I+CiogTGFuZCBhcmVhOiBsYXJnZXIgaW4gV2VzdCAKKiBOdW1iZXIgb2YgaG9zcGl0YWwgYmVkcyBwZXIgY2FwaXRhOiBsb3dlciBpbiB3ZXN0LCBtYWtlcyBzZW5zZQoqIE51bWJlciBvZiBzZXJpb3VzIGNyaW1lcyBwZXIgY2FwaXRhOiBoaWdoZXIgaW4gc291dGgsIExvd2VzdCBpbiBORSAKKiBQZXJjZW50IGhpZ2ggc2Nob29sIGdyYWR1YXRlczogbG93ZXN0IGluIHNvdXRoCiogUGVyY2VudCBiZWxvdyBwb3ZlcnR5IGxldmVsOiBoaWdoZXN0IGluIHNvdXRoIGFuZCB3ZXN0LCBsb3dlc3QgaW4gTkUKKiBQZXIgY2FwaXRhIGluY29tZTogaGlnaGVzdCBpbiBORSAKKiBQZXJzb25hbCBpbmNvbWU6IOKAnAo8Yj4gQWxtb3N0IHNpZ25pZmljYW50IDwvYj4KKiBQZXJjZW50IHVuZW1wbG95bWVudAoKTmV4dCwgbGV0cyBzcGxpdCB0aGUgZGF0YSBpbnRvIHRyYWluaW5nIGFuZCB0ZXN0aW5nLCBhbmQgODAvMjAgc3BsaXQuCgpgYGB7cn0KIyBDcmVkaXQgdG8gaHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMTcyMDAxMTQvaG93LXRvLXNwbGl0LWRhdGEtaW50by10cmFpbmluZy10ZXN0aW5nLXNldHMtdXNpbmctc2FtcGxlLWZ1bmN0aW9uCnRyYWluX2luZGV4IDwtIHNhbXBsZS5pbnQobiA9IG5yb3coY3JpbWUpLCBzaXplID0gZmxvb3IoLjgwKm5yb3coY3JpbWUpKSwgcmVwbGFjZSA9IEYpCnRyYWluX2NyaW1lIDwtIGNyaW1lW3RyYWluX2luZGV4LCBdCnRlc3RfY3JpbWUgIDwtIGNyaW1lWy10cmFpbl9pbmRleCwgXQoKcHJpbnQoZGltKHRyYWluX2NyaW1lKSkKcHJpbnQoZGltKHRlc3RfY3JpbWUpKQpgYGAKCk5vdyBsZXQncyBmaXQgb3VyIExvZ2lzdGljIFJlZ3Jlc3Npb24gTW9kZWwsIGxvZy10cmFuc2Zvcm1pbmcgdGhlIHZhcmlhYmxlcyB0aGF0IGFyZSBleHBvbmVudGlhbGx5LWRpc3RyaWJ1dGVkLgoKYGBge3J9Cm1vZDAgPC0gbXVsdGlub20oYEdlb2dyYXBoaWMgUmVnaW9uYCB+IGxvZyhgTGFuZCBBcmVhYCkgKyBgTnVtIG9mIEhvc3BpdGFsIEJlZHNgICsgY3JpbWVzX3Blcl9wZXJzb24gKyBgUGVyY2VudCBIaWdoIFNjaG9vbCBHcmFkdWF0ZXNgICsgYFBlcmNlbnQgQmVsb3cgUG92ZXJ0eSBMZXZlbGAgKyBgUGVyIENhcGl0YSBJbmNvbWVgICsgYFBlcmNlbnQgVW5lbXBsb3ltZW50YCwgZGF0YSA9IHRyYWluX2NyaW1lKQpzdW1tYXJ5KG1vZDApCmBgYAoKCkxldCdzIHNlZSBpZiB3ZSBjYW4ganVkZ2UgdGhlIGFjY3VyYWN5IG9mIHRoaXMgbW9kZWwgb24gdGhlIHRyYWluaW5nIGFuZCB0ZXN0aW5nIGRhdGFzZXRzCgpgYGB7cn0KIyBDcmVkaXQgdG8gaHR0cHM6Ly9kYXRhc2NpZW5jZWJlZ2lubmVycy5jb20vMjAxOC8xMi8yMC9tdWx0aW5vbWlhbC1sb2dpc3RpYy1yZWdyZXNzaW9uLXVzaW5nLXIvCgojIFByZWRpY3RpbmcgdGhlIHZhbHVlcyBmb3IgdHJhaW4gZGF0YXNldAp0cmFpbl9jcmltZSRwcmVkaWN0ZWQgPC0gcHJlZGljdChtb2QwLCBuZXdkYXRhID0gdHJhaW5fY3JpbWUsICJjbGFzcyIpCgojIEJ1aWxkaW5nIGNsYXNzaWZpY2F0aW9uIHRhYmxlCmN0YWJsZV90cmFpbiA8LSB0YWJsZSh0cmFpbl9jcmltZSRgR2VvZ3JhcGhpYyBSZWdpb25gLCB0cmFpbl9jcmltZSRwcmVkaWN0ZWQpCgojIENhbGN1bGF0aW5nIGFjY3VyYWN5IC0gc3VtIG9mIGRpYWdvbmFsIGVsZW1lbnRzIGRpdmlkZWQgYnkgdG90YWwgb2JzCnRyYWluX2FjYyA8LSByb3VuZCgoc3VtKGRpYWcoY3RhYmxlX3RyYWluKSkvc3VtKGN0YWJsZV90cmFpbikpKjEwMCw0KQoKCiMgUHJlZGljdGluZyB0aGUgdmFsdWVzIGZvciB0ZXN0IGRhdGFzZXQKdGVzdF9jcmltZSRwcmVkaWN0ZWQgPC0gcHJlZGljdChtb2QwLCBuZXdkYXRhID0gdGVzdF9jcmltZSwgImNsYXNzIikKCiMgQnVpbGRpbmcgY2xhc3NpZmljYXRpb24gdGFibGUKY3RhYmxlX3Rlc3QgPC0gdGFibGUodGVzdF9jcmltZSRgR2VvZ3JhcGhpYyBSZWdpb25gLCB0ZXN0X2NyaW1lJHByZWRpY3RlZCkKCiMgQ2FsY3VsYXRpbmcgYWNjdXJhY3kgLSBzdW0gb2YgZGlhZ29uYWwgZWxlbWVudHMgZGl2aWRlZCBieSB0b3RhbCBvYnMKdGVzdF9hY2MgPC0gcm91bmQoKHN1bShkaWFnKGN0YWJsZV90ZXN0KSkvc3VtKGN0YWJsZV90ZXN0KSkqMTAwLDQpCgpwcmludChwYXN0ZSgiVHJhaW5pbmcgQWNjdXJhY3k6ICIsIHRyYWluX2FjYywgIiUiLCBzZXA9IiIpKQpwcmludChwYXN0ZSgiVGVzdGluZyBBY2N1cmFjeTogIiwgdGVzdF9hY2MsICIlIiwgc2VwPSIiKSkKYGBgCgpXaGlsZSBvdXIgYWNjdXJhY3kgaXMgbm90IGluY3JlZGlibHkgaGlnaCwgd2UgYXJlIHBlcmZvcm1pbmcgbXVjaCBiZXR0ZXIgdGhhbiByYW5kb20sIHdoaWNoIHdpdGggNCBjYXRlZ29yaWVzIHdvdWxkIGJlIDI1JS4gTGV0J3Mgc2VlIHdoaWNoIG9mIG91ciBjb2VmZmljaWVudHMgYXJlIHNpZ25pZmljYW50LgoKYGBge3J9CiMgQ3JlZGl0IHRvIGh0dHBzOi8vc3RhdHMuaWRyZS51Y2xhLmVkdS9yL2RhZS9tdWx0aW5vbWlhbC1sb2dpc3RpYy1yZWdyZXNzaW9uLwoKeiA8LSBzdW1tYXJ5KG1vZDApJGNvZWZmaWNpZW50cy9zdW1tYXJ5KG1vZDApJHN0YW5kYXJkLmVycm9ycwpwIDwtICgxIC0gcG5vcm0oYWJzKHopLCAwLCAxKSkgKiAyICN0ZXN0aW5nIGlmIEJfaSA9IDAgdnMuIEJfaSAvPSAwCnAKYGBgCgoKCldlIGNhbiBzZWUgdGhhdCB0aGVyZSBhcmUgb25seSB0aHJlZSBjb2VmZmljaWVudHMgdGhhdCBhcmUgbm90IHNpZ25pZmljYW50IGF0IGFuIGFscGhhLWxldmVsIG9mIDAuMDU6IG51bSBvZiBob3NwaXRhbCBiZWRzIGZvciBsZXZlbCAyLCBwZXJjZW50IG9mIGhpZ2ggc2Nob29sIGdyYWR1YXRlcyBmb3IgbGV2ZWwgMywgYW5kIHBlciBjYXBpdGEgaW5jb21lIGZvciBsZXZlbCA0LiBTaW5jZSB0aGVzZSBjb2VmZmljaWVudHMgYXJlIGluIGNvbXBhcmlzb24gdG8gb3VyIGJhc2VsaW5lIGxldmVsIG9mIHRoZSBOb3J0aGVhc3QsIHRoZW4gdGhpcyB0ZWxscyB1cyB0aGF0IHRoZXNlIGZlYXR1cmVzIGluIHRoZXNlIHJlZ2lvbnMgZG8gbm90IGRpZmZlciBzaWduaWZpY2FudGx5IGZyb20gdGhlIG5vcnRoZWFzdCBpbiBvdXIgZGF0YSBhY2NvcmRpbmcgdG8gb3VyIG1vZGVsLgoKTGFzdCB0aGluZyB3ZSBzaG91bGQgZG8gaXMgdmlldyB0aGUgZXhwb25lbnRpYXRlZCBjb2VmZmljaWVudHMsIGFuZCBzZWUgd2hhdCB3ZSBjYW4gaW50ZXJwcmV0IGZyb20gdGhlbToKCmBgYHtyfQpleHBfY29lZnMgPC0gZXhwKHN1bW1hcnkobW9kMCkkY29lZmZpY2llbnRzKQpleHBfY29lZnMKYGBgCgpUaGlzIGlzIHZlcnkgaW50ZXJlc3RpbmcgdG8gc2VlLiBBbHRob3VnaCBtYW55IG9mIG91ciBjb2VmZmljaWVudHMgd2VyZSBzaWduaWZpY2FudCwgbWFueSBvZiB0aGVyZSBlZmZlY3RzIGFyZSBleHRyZW1lbHkgY2xvc2UgdG8gMS4gQXMgYSByZW1pbmRlciwgdGhlIGludGVycHJldGF0aW9uIG9mIGEgZ2l2ZW4gY29lZmZpY2llbnQgQmxqIGlzIHRoYXQgYXNzdW1pbmcgdGhhdCBhIHJlZ2lvbiBpcyBlaXRoZXIgTkUgb3IgcmVnaW9uIGwsIGlmIHdlIGluY3JlYXNlIHhfaiBieSAxIGFuZCBob2xkIGFsbCBvdGhlciBmZWF0dXJlcyBmaXhlZCwgdGhlIG9kZHMgdGhhdCB0aGUgb3V0Y29tZSBpcyByZWdpb24gaiBpbmNyZWFzZXMgYnkgYSBtdWx0aXBsaWNhdGl2ZSBmYWN0b3Igb2YgQl9sai4gVGhlcmVmb3JlLCBpZiBCX2xqIGlzIGNsb3NlIHRvIDEsIHRoZSBvZGRzIHdpbGwgbm90IGNoYW5nZSBieSBhIGxhcmdlIGFtb3VudCBpbiByZXNwb25zZSB0byBhIGNoYW5nZSBpbiB4X2ouCgpGcm9tIHRoaXMsIHdlIHNlZSB0aGF0IGZvciBOdW1iZXIgb2YgSG9zcGl0YWwgQmVkcywgYW5kIFBlciBDYXBpdGEgSW5jb21lLCBhbGwgb2YgdGhlc2UgdmFyaWFibGVzIHNlZW0gbmVhcmx5IGluY29uc2VxdWVudGlhbC4gTGFuZCBBcmVhLCBQZXJjZW50IEhpZ2ggU2Nob29sIEdyYWR1YXRlcywgUGVyY2VudCBCZWxvdyBQb3ZlcnR5IExldmVsLCBhbmQgUGVyY2VudCBVbmVtcGxveW1lbnQgYXJlIHNsaWdodGx5IG1vcmUgaW1wb3J0YW50LiBCdXQgY3JpbWVzIHBlciBwZXJzb24gaGFzIHRlbnMgb2Ygb3JkZXJzIG9mIG1hZ25pdHVkZSBtb3JlIGltcG9ydGFuY2UgdGhhbiBhbGwgb2YgdGhlIG90aGVyIHZhcmlhYmxlcywgdG8gdGhlIGV4dGVudCB0aGF0IHRoZSBvZGRzIHNlZW0gZW50aXJlbHkgZGV0ZXJtaW5lZCBieSB0aGlzIGZlYXR1cmUuCgoKTGV0J3MgZG8gc29tZSBMaWtlbGlob29kIHJhdGlvIHRlc3RzIHRvIGdhdWdlIHRoZSBjb2xsZWN0aXZlIHJlbGV2YW5jZSBvZiBjZXJ0YWluIHZhcmlhYmxlcyBpbiBvdXIgbW9kZWwuIEZpcnN0LCBsZXQncyB0ZXN0IGEgbW9kZWwgb25seSB1c2luZyBjcmltZXNfcGVyX3BlcnNvbiB2cy4gdXNpbmcgYWxsIG90aGVyIHZhcmlhYmxlcwpgYGB7cn0KbW9kX3JlZCA8LSBtdWx0aW5vbShgR2VvZ3JhcGhpYyBSZWdpb25gIH4gY3JpbWVzX3Blcl9wZXJzb24sIGRhdGEgPSB0cmFpbl9jcmltZSkKc3VtbWFyeShtb2RfcmVkKQoKI0xSVAphbm92YShtb2RfcmVkLCBtb2QwLCB0ZXN0PSJDaGlzcSIpCmBgYApXZSBjYW4gc2VlIHRoYXQgdGhlIGZ1bGwgbW9kZWwsIGFjY29yZGluZyB0byBvdXIgdGVzdCwgYmV0dGVyIGZpdHMgb3VyIGRhdGEgYXQgYW55IHJlYXNvbmFibGUgYWxwaGEtbGV2ZWwuIE5vdywgbGV0J3MgdHJ5IHRlc3RpbmcgaWYgbnVtYmVyIG9mIGhvc3BpdGFsIGJlZHMgYW5kIHBlciBjYXBpdGEgaW5jb21lIGhhdmUgY29lZmZpY2llbnRzIG9mIHplcm8gaW4gb3VyIG1vZGVsLgoKYGBge3J9Cm1vZF9yZWQgPC0gbXVsdGlub20oYEdlb2dyYXBoaWMgUmVnaW9uYCB+IGxvZyhgTGFuZCBBcmVhYCkgKyBjcmltZXNfcGVyX3BlcnNvbiArIGBQZXJjZW50IEhpZ2ggU2Nob29sIEdyYWR1YXRlc2AgKyBgUGVyY2VudCBCZWxvdyBQb3ZlcnR5IExldmVsYCArIGBQZXJjZW50IFVuZW1wbG95bWVudGAsIGRhdGEgPSB0cmFpbl9jcmltZSkKc3VtbWFyeShtb2RfcmVkKQoKI0xSVAphbm92YShtb2RfcmVkLCBtb2QwLCB0ZXN0PSJDaGlzcSIpCmBgYApXaXRoIGFuIGFscGhhLWxldmVsIG9mIDAuMDUsIHdlIHJlamVjdCB0aGUgbnVsbCBoeXBvdGhlc2lzIHRoYXQgbnVtYmVyIG9mIGhvc3BpdGFsIGJlZHMgYW5kIHBlciBjYXBpdGEgaW5jb21lIGhhdmUgY29lZmZpY2llbnRzIG9mIHplcm8gaW4gb3VyIG1vZGVsLiBTbywgd2UgbWF5IGtlZXAgdGhlc2UgdmFyaWFibGVzIGluIG91ciBtb2RlbCwgYWx0aG91Z2ggdGhleSBzZWVtIHRvIGFkZCBsaXR0bGUgcmVsYXRpdmUgd2VpZ2h0IHRvIHRoZSBtb2RlbCBkZWNpc2lvbi4KCgoKCgoKCgoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiBQb2x5dG9tb3VzIExvZ2lzdGljIFJlZ3Jlc3Npb24gTW9kZWwgdG8gUHJlZGljdCBSZWdpb24gaW4gQ291bnR5IENyaW1lIERhdGFzZXQKYXV0aG9yOiAiQW1pciBJZHJpcyIKb3V0cHV0OgogIHBkZl9kb2N1bWVudDogZGVmYXVsdAogIGh0bWxfbm90ZWJvb2s6IGRlZmF1bHQKLS0tCmBgYHtyfQppZiAoIXJlcXVpcmUoImRwbHlyIikpewogIGluc3RhbGwucGFja2FnZXMoImRwbHlyIikKfQoKaWYgKCFyZXF1aXJlKCJubmV0IikpewogIGluc3RhbGwucGFja2FnZXMoIm5uZXQiKQp9CgpsaWJyYXJ5KGRwbHlyKQpsaWJyYXJ5KG5uZXQpCmBgYAoKCkZpcnN0LCBsZXQncyBsb2FkIHRoZSBkYXRhLgoKYGBge3J9CmNyaW1lIDwtIHJlYWQudGFibGUoIi4uL2RhdGEvQVBQRU5DMDIudHh0Iiwgc2VwPSIiLCBoZWFkZXI9RkFMU0UpClVOSSA8LSAyMjQ0CnNldC5zZWVkKFVOSSkKaW5kZXggPC0gc2FtcGxlKGMoMTo0NDApKQpjcmltZSA8LSBjcmltZVtpbmRleFsxOjI1MF0sXQoKIyBSZW5hbWUgY29sdW1uIG5hbWVzIHRvIHJlZmxlY3QgbWVhbmluZwpjb2x1bW4ubmFtZXMgPC0gYygiSWQiLCAiQ291bnR5IE5hbWUiLCAiU3RhdGUiLCAiTGFuZCBBcmVhIiwgIlRvdGFsIFBvcC4iLCAiUGVyY2VudCBvZiBQb3AuIEFnZSAxOC0zNCIsICJQZXJjZW50IG9mIFBvcC4gQWdlID49IDY1IiwgIk51bSBvZiBBY3RpdmUgUGh5c2ljaWFucyIsICJOdW0gb2YgSG9zcGl0YWwgQmVkcyIsICJUb3RhbCBTZXJpb3VzIENyaW1lcyIsICJQZXJjZW50IEhpZ2ggU2Nob29sIEdyYWR1YXRlcyIsICJQZXJjZW50IEJhY2hlbG9yJ3MgRGVncmVlIiwgIlBlcmNlbnQgQmVsb3cgUG92ZXJ0eSBMZXZlbCIsICJQZXJjZW50IFVuZW1wbG95bWVudCIsICJQZXIgQ2FwaXRhIEluY29tZSIsICJUb3RhbCBwZXJzb25hbCBpbmNvbWUiLCAiR2VvZ3JhcGhpYyBSZWdpb24iKQoKY29sbmFtZXMoY3JpbWUpIDwtIGNvbHVtbi5uYW1lcwoKIyBBZGQgY3JpbWVzIHBlciBwZXJzb24gYXMgY29sdW1uCmNyaW1lc19wZXJfcGVyc29uIDwtIGNyaW1lJGBUb3RhbCBTZXJpb3VzIENyaW1lc2AvY3JpbWUkYFRvdGFsIFBvcC5gCmNyaW1lIDwtIGFzLmRhdGEuZnJhbWUoY2JpbmQoY3JpbWUsIGNyaW1lc19wZXJfcGVyc29uKSkKCiMgQWRkIGhvc3BpdGFsIGJlZHMgcGVyIHBlcnNvbiBhcyBjb2x1bW4KYmVkc19wZXJfcGVyc29uIDwtIGNyaW1lJGBOdW0gb2YgSG9zcGl0YWwgQmVkc2AvY3JpbWUkYFRvdGFsIFBvcC5gCmNyaW1lIDwtIGFzLmRhdGEuZnJhbWUoY2JpbmQoY3JpbWUsIGJlZHNfcGVyX3BlcnNvbikpCgpjcmltZSRgR2VvZ3JhcGhpYyBSZWdpb25gIDwtIGFzLmZhY3RvcihjcmltZSRgR2VvZ3JhcGhpYyBSZWdpb25gKSAjRW5zdXJlIG91ciBvdXRjb21lIHZhcmlhYmxlIGlzIHRyZWF0ZWQgYXMgYSBmYWN0b3IgdmFyaWFibGUKd2l0aChjcmltZSwgbGV2ZWxzKGBHZW9ncmFwaGljIFJlZ2lvbmApKQoKaGVhZChjcmltZSkKYGBgCmBgYHtyfQojIFBsb3QgY3JpbWUgcGVyIHBlcnNvbgpjcmltZV9wb3AgPC0gY3JpbWVbb3JkZXIoY3JpbWUkY3JpbWVzX3Blcl9wZXJzb24pLCBdCgpiYXJwbG90KGNyaW1lX3BvcCRjcmltZXNfcGVyX3BlcnNvbiwgbmFtZXMuYXJnID0gY3JpbWVfcG9wJGBDb3VudHkgTmFtZWAsIHhsYWIgPSAiQ291bnR5IiwgeWxhYiA9ICJDcmltZXMgUGVyIFBlcnNvbiIsIG1haW4gPSAiQ3JpbWVzIFBlciBQZXJzb24gZm9yIGVhY2ggQ291bnR5IikKYGBgCk5vdyB3ZSBjYW4gc2VlIHdlIG5vIGxvbmdlciBuZWVkIHRvIGxvZy10cmFuc2Zvcm0gdG90YWwgY3JpbWUgYW5kIHBvcHVsYXRpb24KCgpBcyBmb3VuZCBpbiBvdXIgQU5PVkEgdGVzdHMsIHRoZSBmb2xsb3dpbmcgcHJlZGljdG9ycyBoYXZlIHNpZ25pZmljYW50IG9yIG5lYXItc2lnbmlmaWNhbnQgZGlmZmVyZW5jZXMgYmV0d2VlbiByZWdpb25zLCBhdCBhbiBhbHBoYS1sZXZlbCBvZiAwLjA1LiBTbywgd2UgY2FuIHVzZSB0aGVzZSBpbiBvdXIgbW9kZWwuCgo8Yj4gU2lnbmlmaWNhbnQgPC9iPgoqIExhbmQgYXJlYTogbGFyZ2VyIGluIFdlc3QgCiogTnVtYmVyIG9mIGhvc3BpdGFsIGJlZHMgcGVyIGNhcGl0YTogbG93ZXIgaW4gd2VzdCwgbWFrZXMgc2Vuc2UKKiBOdW1iZXIgb2Ygc2VyaW91cyBjcmltZXMgcGVyIGNhcGl0YTogaGlnaGVyIGluIHNvdXRoLCBMb3dlc3QgaW4gTkUgCiogUGVyY2VudCBoaWdoIHNjaG9vbCBncmFkdWF0ZXM6IGxvd2VzdCBpbiBzb3V0aAoqIFBlcmNlbnQgYmVsb3cgcG92ZXJ0eSBsZXZlbDogaGlnaGVzdCBpbiBzb3V0aCBhbmQgd2VzdCwgbG93ZXN0IGluIE5FCiogUGVyIGNhcGl0YSBpbmNvbWU6IGhpZ2hlc3QgaW4gTkUgCiogUGVyc29uYWwgaW5jb21lOiDigJwKPGI+IEFsbW9zdCBzaWduaWZpY2FudCA8L2I+CiogUGVyY2VudCB1bmVtcGxveW1lbnQKCk5leHQsIGxldHMgc3BsaXQgdGhlIGRhdGEgaW50byB0cmFpbmluZyBhbmQgdGVzdGluZywgYW5kIDgwLzIwIHNwbGl0LgoKYGBge3J9CiMgQ3JlZGl0IHRvIGh0dHBzOi8vc3RhY2tvdmVyZmxvdy5jb20vcXVlc3Rpb25zLzE3MjAwMTE0L2hvdy10by1zcGxpdC1kYXRhLWludG8tdHJhaW5pbmctdGVzdGluZy1zZXRzLXVzaW5nLXNhbXBsZS1mdW5jdGlvbgp0cmFpbl9pbmRleCA8LSBzYW1wbGUuaW50KG4gPSBucm93KGNyaW1lKSwgc2l6ZSA9IGZsb29yKC44MCpucm93KGNyaW1lKSksIHJlcGxhY2UgPSBGKQp0cmFpbl9jcmltZSA8LSBjcmltZVt0cmFpbl9pbmRleCwgXQp0ZXN0X2NyaW1lICA8LSBjcmltZVstdHJhaW5faW5kZXgsIF0KCnByaW50KGRpbSh0cmFpbl9jcmltZSkpCnByaW50KGRpbSh0ZXN0X2NyaW1lKSkKYGBgCgpOb3cgbGV0J3MgZml0IG91ciBMb2dpc3RpYyBSZWdyZXNzaW9uIE1vZGVsLCBsb2ctdHJhbnNmb3JtaW5nIHRoZSB2YXJpYWJsZXMgdGhhdCBhcmUgZXhwb25lbnRpYWxseS1kaXN0cmlidXRlZC4KCmBgYHtyfQptb2QwIDwtIG11bHRpbm9tKGBHZW9ncmFwaGljIFJlZ2lvbmAgfiBsb2coYExhbmQgQXJlYWApICsgYmVkc19wZXJfcGVyc29uICsgY3JpbWVzX3Blcl9wZXJzb24gKyBgUGVyY2VudCBIaWdoIFNjaG9vbCBHcmFkdWF0ZXNgICsgYFBlcmNlbnQgQmVsb3cgUG92ZXJ0eSBMZXZlbGAgKyBgUGVyIENhcGl0YSBJbmNvbWVgICsgYFBlcmNlbnQgVW5lbXBsb3ltZW50YCwgZGF0YSA9IHRyYWluX2NyaW1lKQpzdW1tYXJ5KG1vZDApCmBgYAoKCkxldCdzIHNlZSBpZiB3ZSBjYW4ganVkZ2UgdGhlIGFjY3VyYWN5IG9mIHRoaXMgbW9kZWwgb24gdGhlIHRyYWluaW5nIGFuZCB0ZXN0aW5nIGRhdGFzZXRzCgpgYGB7cn0KIyBDcmVkaXQgdG8gaHR0cHM6Ly9kYXRhc2NpZW5jZWJlZ2lubmVycy5jb20vMjAxOC8xMi8yMC9tdWx0aW5vbWlhbC1sb2dpc3RpYy1yZWdyZXNzaW9uLXVzaW5nLXIvCgojIFByZWRpY3RpbmcgdGhlIHZhbHVlcyBmb3IgdHJhaW4gZGF0YXNldAp0cmFpbl9jcmltZSRwcmVkaWN0ZWQgPC0gcHJlZGljdChtb2QwLCBuZXdkYXRhID0gdHJhaW5fY3JpbWUsICJjbGFzcyIpCgojIEJ1aWxkaW5nIGNsYXNzaWZpY2F0aW9uIHRhYmxlCmN0YWJsZV90cmFpbiA8LSB0YWJsZSh0cmFpbl9jcmltZSRgR2VvZ3JhcGhpYyBSZWdpb25gLCB0cmFpbl9jcmltZSRwcmVkaWN0ZWQpCgojIENhbGN1bGF0aW5nIGFjY3VyYWN5IC0gc3VtIG9mIGRpYWdvbmFsIGVsZW1lbnRzIGRpdmlkZWQgYnkgdG90YWwgb2JzCnRyYWluX2FjYyA8LSByb3VuZCgoc3VtKGRpYWcoY3RhYmxlX3RyYWluKSkvc3VtKGN0YWJsZV90cmFpbikpKjEwMCw0KQoKCiMgUHJlZGljdGluZyB0aGUgdmFsdWVzIGZvciB0ZXN0IGRhdGFzZXQKdGVzdF9jcmltZSRwcmVkaWN0ZWQgPC0gcHJlZGljdChtb2QwLCBuZXdkYXRhID0gdGVzdF9jcmltZSwgImNsYXNzIikKCiMgQnVpbGRpbmcgY2xhc3NpZmljYXRpb24gdGFibGUKY3RhYmxlX3Rlc3QgPC0gdGFibGUodGVzdF9jcmltZSRgR2VvZ3JhcGhpYyBSZWdpb25gLCB0ZXN0X2NyaW1lJHByZWRpY3RlZCkKCiMgQ2FsY3VsYXRpbmcgYWNjdXJhY3kgLSBzdW0gb2YgZGlhZ29uYWwgZWxlbWVudHMgZGl2aWRlZCBieSB0b3RhbCBvYnMKdGVzdF9hY2MgPC0gcm91bmQoKHN1bShkaWFnKGN0YWJsZV90ZXN0KSkvc3VtKGN0YWJsZV90ZXN0KSkqMTAwLDQpCgpwcmludChwYXN0ZSgiVHJhaW5pbmcgQWNjdXJhY3k6ICIsIHRyYWluX2FjYywgIiUiLCBzZXA9IiIpKQpwcmludChwYXN0ZSgiVGVzdGluZyBBY2N1cmFjeTogIiwgdGVzdF9hY2MsICIlIiwgc2VwPSIiKSkKYGBgCgpXaGlsZSBvdXIgYWNjdXJhY3kgaXMgbm90IGluY3JlZGlibHkgaGlnaCwgd2UgYXJlIHBlcmZvcm1pbmcgbXVjaCBiZXR0ZXIgdGhhbiByYW5kb20sIHdoaWNoIHdpdGggNCBjYXRlZ29yaWVzIHdvdWxkIGJlIDI1JS4gTGV0J3Mgc2VlIHdoaWNoIG9mIG91ciBjb2VmZmljaWVudHMgYXJlIHNpZ25pZmljYW50LgoKYGBge3J9CiMgQ3JlZGl0IHRvIGh0dHBzOi8vc3RhdHMuaWRyZS51Y2xhLmVkdS9yL2RhZS9tdWx0aW5vbWlhbC1sb2dpc3RpYy1yZWdyZXNzaW9uLwoKeiA8LSBzdW1tYXJ5KG1vZDApJGNvZWZmaWNpZW50cy9zdW1tYXJ5KG1vZDApJHN0YW5kYXJkLmVycm9ycwpwIDwtICgxIC0gcG5vcm0oYWJzKHopLCAwLCAxKSkgKiAyICN0ZXN0aW5nIGlmIEJfaSA9IDAgdnMuIEJfaSAvPSAwCnAKYGBgCgoKCldlIGNhbiBzZWUgdGhhdCB0aGVyZSBpcyBvbmx5IG9uZSBjb2VmZmljaWVudHMgdGhhdCBpcyBub3Qgc2lnbmlmaWNhbnQgYXQgYW4gYWxwaGEtbGV2ZWwgb2YgMC4wNTogcGVyIGNhcGl0YSBpbmNvbWUgZm9yIGxldmVsIDQuIFNpbmNlIHRoZXNlIGNvZWZmaWNpZW50cyBhcmUgaW4gY29tcGFyaXNvbiB0byBvdXIgYmFzZWxpbmUgbGV2ZWwgb2YgdGhlIE5vcnRoZWFzdCwgdGhlbiB0aGlzIHRlbGxzIHVzIHRoYXQgcGVyIGNhcGl0YSBpbmNvbWUgZG9lcyBub3QgZGlmZmVyIHNpZ25pZmljYW50bHkgYmV0d2VlbiB0aGUgd2VzdCBhbmQgdGhlIG5vcnRoZWFzdCBpbiBvdXIgZGF0YSBhY2NvcmRpbmcgdG8gb3VyIG1vZGVsLgoKTGFzdCB0aGluZyB3ZSBzaG91bGQgZG8gaXMgdmlldyB0aGUgZXhwb25lbnRpYXRlZCBjb2VmZmljaWVudHMsIGFuZCBzZWUgd2hhdCB3ZSBjYW4gaW50ZXJwcmV0IGZyb20gdGhlbToKCmBgYHtyfQpleHBfY29lZnMgPC0gZXhwKHN1bW1hcnkobW9kMCkkY29lZmZpY2llbnRzKQpleHBfY29lZnMKYGBgCgpUaGlzIGlzIHZlcnkgaW50ZXJlc3RpbmcgdG8gc2VlLiBBbHRob3VnaCBtYW55IG9mIG91ciBjb2VmZmljaWVudHMgd2VyZSBzaWduaWZpY2FudCwgbWFueSBvZiB0aGVyZSBlZmZlY3RzIGFyZSBleHRyZW1lbHkgY2xvc2UgdG8gMS4gQXMgYSByZW1pbmRlciwgdGhlIGludGVycHJldGF0aW9uIG9mIGEgZ2l2ZW4gY29lZmZpY2llbnQgQmxqIGlzIHRoYXQgYXNzdW1pbmcgdGhhdCBhIHJlZ2lvbiBpcyBlaXRoZXIgTkUgb3IgcmVnaW9uIGwsIGlmIHdlIGluY3JlYXNlIHhfaiBieSAxIGFuZCBob2xkIGFsbCBvdGhlciBmZWF0dXJlcyBmaXhlZCwgdGhlIG9kZHMgdGhhdCB0aGUgb3V0Y29tZSBpcyByZWdpb24gaiBpbmNyZWFzZXMgYnkgYSBtdWx0aXBsaWNhdGl2ZSBmYWN0b3Igb2YgQl9sai4gVGhlcmVmb3JlLCBpZiBCX2xqIGlzIGNsb3NlIHRvIDEsIHRoZSBvZGRzIHdpbGwgbm90IGNoYW5nZSBieSBhIGxhcmdlIGFtb3VudCBpbiByZXNwb25zZSB0byBhIGNoYW5nZSBpbiB4X2ouCgpGcm9tIHRoaXMsIHdlIHNlZSB0aGF0IGZvciBQZXJjZW50IFVuZW1wbG95bWVudCBhbmQgUGVyIENhcGl0YSBJbmNvbWUsIExhbmQgQXJlYSwgUGVyY2VudCBIaWdoIFNjaG9vbCBHcmFkdWF0ZXMsIFBlcmNlbnQgQmVsb3cgUG92ZXJ0eSBMZXZlbCwgdGhlc2UgdmFyaWFibGVzIHNlZW0gbmVhcmx5IGluY29uc2VxdWVudGlhbC4gQnV0IGNyaW1lcyBwZXIgcGVyc29uIGFuZCBiZWRzX3Blcl9wZXJzb24gaGFzIHRlbnMgb2Ygb3JkZXJzIG9mIG1hZ25pdHVkZSBtb3JlIGltcG9ydGFuY2UgdGhhbiBhbGwgb2YgdGhlIG90aGVyIHZhcmlhYmxlcywgdG8gdGhlIGV4dGVudCB0aGF0IHRoZSBvZGRzIHNlZW0gZW50aXJlbHkgZGV0ZXJtaW5lZCBieSB0aGlzIGZlYXR1cmUuCgoKTGV0J3MgZG8gc29tZSBMaWtlbGlob29kIHJhdGlvIHRlc3RzIHRvIGdhdWdlIHRoZSBjb2xsZWN0aXZlIHJlbGV2YW5jZSBvZiBjZXJ0YWluIHZhcmlhYmxlcyBpbiBvdXIgbW9kZWwuIEZpcnN0LCBsZXQncyB0ZXN0IGEgbW9kZWwgb25seSB1c2luZyBjcmltZXNfcGVyX3BlcnNvbiBhbmQgYmVkc19wZXJfcGVyc29uIHZzLiB1c2luZyBhbGwgb3RoZXIgdmFyaWFibGVzCmBgYHtyfQptb2RfcmVkIDwtIG11bHRpbm9tKGBHZW9ncmFwaGljIFJlZ2lvbmAgfiBjcmltZXNfcGVyX3BlcnNvbiArIGJlZHNfcGVyX3BlcnNvbiwgZGF0YSA9IHRyYWluX2NyaW1lKQpzdW1tYXJ5KG1vZF9yZWQpCgojTFJUCmFub3ZhKG1vZF9yZWQsIG1vZDAsIHRlc3Q9IkNoaXNxIikKYGBgCldlIGNhbiBzZWUgdGhhdCB0aGUgZnVsbCBtb2RlbCwgYWNjb3JkaW5nIHRvIG91ciB0ZXN0LCBiZXR0ZXIgZml0cyBvdXIgZGF0YSBhdCBhbnkgcmVhc29uYWJsZSBhbHBoYS1sZXZlbC4gTm93LCBsZXQncyB0cnkgdGVzdGluZyBpZiBwZXIgY2FwaXRhIGluY29tZSBoYXMgYSBjb2VmZmljaWVudCBvZiB6ZXJvIGluIG91ciBtb2RlbC4KCmBgYHtyfQptb2RfcmVkIDwtIG11bHRpbm9tKGBHZW9ncmFwaGljIFJlZ2lvbmAgfiBsb2coYExhbmQgQXJlYWApICsgY3JpbWVzX3Blcl9wZXJzb24gKyBiZWRzX3Blcl9wZXJzb24gKyBgUGVyY2VudCBIaWdoIFNjaG9vbCBHcmFkdWF0ZXNgICsgYFBlcmNlbnQgQmVsb3cgUG92ZXJ0eSBMZXZlbGAgKyBgUGVyY2VudCBVbmVtcGxveW1lbnRgLCBkYXRhID0gdHJhaW5fY3JpbWUpCnN1bW1hcnkobW9kX3JlZCkKCiNMUlQKYW5vdmEobW9kX3JlZCwgbW9kMCwgdGVzdD0iQ2hpc3EiKQpgYGAKV2l0aCBhbiBhbHBoYS1sZXZlbCBvZiAwLjA1LCB3ZSByZWplY3QgdGhlIG51bGwgaHlwb3RoZXNpcyB0aGF0IHBlciBjYXBpdGEgaW5jb21lIGhhcyBhIGNvZWZmaWNpZW50IG9mIHplcm8gaW4gb3VyIG1vZGVsLiBTbywgd2UgbWF5IGtlZXAgYWxsIG9mIHRoZXNlIHZhcmlhYmxlcyBpbiBvdXIgbW9kZWwsIGFsdGhvdWdoIHNvbWUgc2VlbSB0byBhZGQgbGl0dGxlIHJlbGF0aXZlIHdlaWdodCB0byB0aGUgbW9kZWwgZGVjaXNpb24uCgoKCgoKCgoKCg==</div>
 
 
 
