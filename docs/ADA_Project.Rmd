@@ -1,0 +1,268 @@
+---
+title: "ADA Final"
+author: "Sophie Bair"
+date: "4/8/2021"
+output: pdf_document
+---
+
+Significant
+* Land area
+* Number of hospital beds per capita
+* Number of serious crimes per capita
+* Percent high school graduates
+* Percent below poverty level
+* Per capita income
+* Personal income
+* Percent unemployment
+
+```{r}
+data<-read.table("/Users/seb2244/Downloads/APPENC02.txt", sep="", header=FALSE)
+UNI<-2244
+set.seed(UNI)
+index <-sample(c(1:440))
+mydata<-data[index[1:250],]
+head(mydata)
+```
+
+```{r}
+write.csv(mydata, "/Users/seb2244/Downloads/ada_project_df.csv")
+```
+
+```{r}
+ne <- mydata[mydata$V17 == 1, ]
+nc <- mydata[mydata$V17 == 2, ]
+s <- mydata[mydata$V17 == 3, ]
+w <- mydata[mydata$V17 == 4, ]
+nrow(ne)
+nrow(nc)
+nrow(s)
+nrow(w)
+```
+```{r}
+length(unique(mydata$V1)) # no duplicates
+```
+
+```{r}
+subset = mydata[, c(4:7, 11:20)]
+cor(subset)
+```
+```{r}
+# import packages
+library(car)
+```
+
+V4: Land Area
+```{r}
+# visualize data 
+boxplot(log(V4)~V17, data = mydata)$stats # west has large land area
+```
+```{r}
+# test assumptions 
+hist(mydata$V4, breaks = 50) # not normal, right skewed
+leveneTest(V4~factor(V17), data = mydata) # significantly unequal variance
+# independence assumption is assumed to be true since other than counties which are bordering and may influence crime rates in the other, counties can be considered independent 
+```
+```{r}
+kruskal.test(V4~factor(V17), data = mydata) # significant
+```
+V5: Total population
+```{r}
+# test assumptions 
+hist(mydata$V5, breaks = 50) # not normal! 
+leveneTest(V4~factor(V17), data = mydata) # not equal variance
+```
+```{r}
+boxplot(V5~V17, data = mydata)$stats # ne has large population
+```
+
+```{r}
+kruskal.test(V5~factor(V17), data = mydata) # pop not significant
+```
+
+V6: Percent of population aged 18-34
+```{r}
+# test assumptions 
+hist(mydata$V6, breaks = 50) # fairly normal
+leveneTest(V6~factor(V17), data = mydata) # not equal variance, but it's probably fine since anova is robust to some difference in variance as long as its not too severe. I did anova and k-w to be safe
+var(s$V6)
+var(ne$V6)
+var(nc$V6)
+var(w$V6)
+```
+```{r}
+boxplot(V6~V17, data = mydata)$stats # pretty consistent percent young
+```
+```{r}
+summary(aov(V6~factor(V17), data = mydata)) # younger pop not significant
+```
+```{r}
+kruskal.test(V6~factor(V17), data = mydata) # again, not significant
+```
+
+V7: percent of population aged 65+
+```{r}
+# test assumptions 
+hist(mydata$V7, breaks = 50) # fairly normal
+leveneTest(V7~factor(V17), data = mydata) # huge imbalance in variance
+var(s$V7)
+var(ne$V7)
+var(nc$V7)
+var(w$V7)
+```
+```{r}
+boxplot(V7~V17, data = mydata)$stats # slightly higher older pop in ne
+```
+
+```{r}
+kruskal.test(V7~factor(V17), data = mydata) # pop not significant
+```
+
+V8: number of active physicians 
+```{r}
+# test assumptions 
+mydata$doctors_per_cap = mydata$V8/mydata$V5 # scale by population
+hist(mydata$doctors_per_cap, breaks = 50) # right skewed
+leveneTest(doctors_per_cap~factor(V17), data = mydata) # equal var
+```
+```{r}
+boxplot(doctors_per_cap~V17, data = mydata)$stats # slightly higher number of doctors in ne? 
+```
+```{r}
+kruskal.test(doctors_per_cap~factor(V17), data = mydata) # doctors per cap not significant
+```
+
+V9: number of hospital beds 
+```{r}
+# test assumptions 
+mydata$hospitals_per_cap = mydata$V9/mydata$V5
+
+hist(mydata$hospitals_per_cap, breaks = 50) # right skewed
+leveneTest(hospitals_per_cap~factor(V17), data = mydata) # unequal variance
+```
+```{r}
+boxplot(V9/V5~V17, data = mydata)$stats # pretty different between regions
+```
+```{r}
+kruskal.test(V9/V5~factor(V17), data = mydata) # number of hospital beds per capita is significant
+```
+
+V10: total serious crimes
+```{r}
+mydata$crimes_per_cap = mydata$V10/mydata$V5
+
+# test assumptions 
+hist(mydata$crimes_per_cap, breaks = 50) # fairly normal
+leveneTest(crimes_per_cap~factor(V17), data = mydata) # unequal variance, but might be ok for anova
+var(s$crimes_per_cap )
+var(ne$crimes_per_cap )
+var(nc$crimes_per_cap )
+var(w$crimes_per_cap)
+```
+```{r}
+boxplot(V10/V5~V17, data = mydata)$stats # very different between regions
+```
+
+```{r}
+summary(aov(V10/V5~factor(V17), data = mydata)) # number of crimes per capita is significant
+```
+```{r}
+kruskal.test(crimes_per_cap~V17, data = mydata) # pop not significant
+```
+
+V11: Percent high school graduates
+```{r}
+# test assumptions 
+hist(mydata$V11, breaks = 50) # slightly left skewed
+leveneTest(V11~factor(V17), data = mydata) # equal variance
+```
+```{r}
+boxplot(V11~V17, data = mydata)$stats # pretty different between regions
+```
+```{r}
+summary(aov(V11~factor(V17), data = mydata)) # high school education rate is significant
+```
+```{r}
+kruskal.test(V11~factor(V17), data = mydata)
+```
+
+V12: percent bachelor's degree
+```{r}
+# test assumptions 
+hist(mydata$V12, breaks = 50) # slightly right skewed
+leveneTest(V12~factor(V17), data = mydata) # equal variance
+```
+```{r}
+# could probably bin some of these 
+boxplot(V12~V17, data = mydata)$stats # ne and w have high education levels
+```
+```{r}
+summary(aov(V12~factor(V17), data = mydata)) # but college grads not significant
+```
+```{r}
+kruskal.test(V12~factor(V17), data = mydata)
+```
+
+V13: Percent below poverty level
+```{r}
+# test assumptions 
+hist(mydata$V13, breaks = 50) # very right skewed
+leveneTest(V13~factor(V17), data = mydata) # unequal variance 
+```
+```{r}
+boxplot(V13~V17, data = mydata)$stats # poverty level also very characteristic, could see if correlates with education 
+```
+
+```{r}
+kruskal.test(V13~V17, data = mydata) # % below poverty level significant
+```
+
+V14: percent unemployment 
+```{r}
+# test assumptions 
+hist(mydata$V14, breaks = 50) # slightly right skewed
+leveneTest(V14~factor(V17), data = mydata) # unequal variance
+```
+```{r}
+boxplot(V14~V17, data = mydata)$stats # percent unemployment almost significant
+
+summary(aov(V14~factor(V17), data = mydata)) 
+```
+```{r}
+kruskal.test(V14~V17, data = mydata) # unemployment is significant
+```
+
+V15: Per capita income
+```{r}
+# test assumptions 
+hist(mydata$V15, breaks = 50) # fairly normal
+leveneTest(V15~factor(V17), data = mydata) # not equal variance, but could be fine because anova is fairly robust to this 
+var(s$V15)
+var(ne$V15)
+var(nc$V15)
+var(w$V15)
+```
+```{r}
+boxplot(V15~V17, data = mydata)$stats 
+
+summary(aov(V15~factor(V17), data = mydata)) # per capita income is significant
+```
+```{r}
+kruskal.test(V15~V17, data = mydata) # per capita income is significant
+```
+
+V16: total personal income 
+```{r}
+# test assumptions 
+hist(mydata$V16, breaks = 50) # extremely right skeweed
+leveneTest(V16~factor(V17), data = mydata) # equal variance
+```
+```{r}
+boxplot(V16~V17, data = mydata)$stats
+```
+```{r}
+summary(aov(V16~factor(V17), data = mydata)) # total personal income is significant
+```
+
+```{r}
+kruskal.test(V16~V17, data = mydata) # total personal income is significant
+```
