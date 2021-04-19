@@ -76,6 +76,13 @@ for(i in 1:(d-1)){
 }
 ```
 
+Now, let's gauge the relationship between our predictor variables, to see which are correlated.
+
+```{r}
+predictors <- crime[, 4:16]
+pairs(predictors, upper.panel = NULL, pch = 20)
+```
+
 
 
 
