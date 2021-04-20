@@ -14,6 +14,10 @@ if (!require("nnet")){
   install.packages("nnet")
 }
 
+if (!require("ggplot2")){
+  install.packages("ggplot2")
+}
+
 if (!require("formattable")){
   install.packages("formattable")
 }
@@ -21,6 +25,7 @@ if (!require("formattable")){
 library(dplyr)
 library(nnet)
 library(formattable)
+library(ggplot2)
 ```
 
 
@@ -91,7 +96,9 @@ Now let's fit our Logistic Regression Model, log-transforming the variables that
 mod0 <- multinom(`Geographic Region` ~ log(`Land Area`) + beds_per_person + crimes_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Per Capita Income` + `Percent Unemployment`, data = train_crime)
 #summary(mod0)
 coefs <- as.data.frame(summary(mod0)$coefficients)
+std_errs <- as.data.frame(round(summary(mod0)$standard.errors, 7))
 formattable(coefs, align = c("l", rep("r", NCOL(coefs) - 1)))
+formattable(std_errs, align = c("l", rep("r", NCOL(std_errs) - 1)))
 ```
 
 
@@ -123,14 +130,30 @@ print(paste("Training Accuracy: ", train_acc, "%", sep=""))
 print(paste("Testing Accuracy: ", test_acc, "%", sep=""))
 ```
 
-While our accuracy is not incredibly high, we are performing much better than random, which with 4 categories would be 25%. Let's see which of our coefficients are significant.
+While our accuracy is not incredibly high, we are performing much better than random, which with the 4 unbalanced classes we have, would not perform much better than 35%
 
+Histogram of output categories
+```{r}
+ggplot(crime, aes(x = `Geographic Region`)) +
+    geom_bar()
+
+# Get counts by region
+freq_table <- crime %>% group_by(`Geographic Region`) %>% tally()
+freq_table$n <- freq_table$n/(count(crime)[1,1])
+freq_table
+```
+
+
+Let's see which of our coefficients are significant.
 ```{r}
 # Credit to https://stats.idre.ucla.edu/r/dae/multinomial-logistic-regression/
 
 z <- summary(mod0)$coefficients/summary(mod0)$standard.errors
-p <- (1 - pnorm(abs(z), 0, 1)) * 2 #testing if B_i = 0 vs. B_i /= 0
-p
+p <- as.data.frame((1 - pnorm(abs(z), 0, 1)) * 2) #testing if B_i = 0 vs. B_i /= 0
+z <- as.data.frame(z)
+
+formattable(z, align = c("l", rep("r", NCOL(z) - 1)))
+formattable(p, align = c("l", rep("r", NCOL(p) - 1)))
 ```
 
 
