@@ -16,7 +16,7 @@ Significant
 * Percent unemployment
 
 ```{r}
-data<-read.table("/Users/seb2244/Downloads/APPENC02.txt", sep="", header=FALSE)
+data<-read.table("../data/APPENC02.txt", sep="", header=FALSE)
 UNI<-2244
 set.seed(UNI)
 index <-sample(c(1:440))
@@ -25,7 +25,7 @@ head(mydata)
 ```
 
 ```{r}
-write.csv(mydata, "/Users/seb2244/Downloads/ada_project_df.csv")
+write.csv(mydata, "../output/ada_project_df.csv")
 ```
 
 ```{r}
