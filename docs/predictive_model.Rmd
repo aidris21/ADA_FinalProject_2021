@@ -56,6 +56,14 @@ with(crime, levels(`Geographic Region`))
 
 head(crime)
 ```
+
+Summary of data
+```{r}
+summary(crime)
+```
+
+
+
 ```{r}
 # Plot crime per person
 crime_pop <- crime[order(crime$crimes_per_person), ]
@@ -89,6 +97,13 @@ test_crime  <- crime[-train_index, ]
 print(dim(train_crime))
 print(dim(test_crime))
 ```
+
+Rename output categories
+```{r}
+levels(crime$`Geographic Region`) <- c("Northeast", "North Central", "South", "West")
+```
+
+
 
 Now let's fit our Logistic Regression Model, log-transforming the variables that are exponentially-distributed.
 
