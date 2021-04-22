@@ -1,0 +1,549 @@
+---
+title: Where Are You From? Predicting Regionality Using County Demographic Data
+author: "Amir Idris and Sophie Bair"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+<h1> Exploratory Data Analysis  </h1>
+```{r}
+library(dplyr)
+```
+
+
+First, let's load the data.
+
+```{r}
+crime <- read.table("../data/APPENC02.txt", sep="", header=FALSE)
+UNI <- 2244
+set.seed(UNI)
+index <- sample(c(1:440))
+crime <- crime[index[1:250],]
+
+summary(crime)
+```
+
+Let's rename the columns to make it easier for ourselves
+```{r}
+
+column.names <- c("Id", "County Name", "State", "Land Area", "Total Pop.", "Percent of Pop. Age 18-34", "Percent of Pop. Age >= 65", "Num of Active Physicians", "Num of Hospital Beds", "Total Serious Crimes", "Percent High School Graduates", "Percent Bachelor's Degree", "Percent Below Poverty Level", "Percent Unemployment", "Per Capita Income", "Total personal income", "Geographic Region")
+
+colnames(crime) <- column.names
+head(crime)
+```
+
+We have quite a few variables. Let's take this step by step. First, let's plot the variables that are likely to have a wide-spread, since we may have to log-transform those later. Let's take a look at land area, total population, and total serious crimes by county.
+
+```{r}
+jpeg("../figs/exp_variables.jpg", width = 1000, height = 1000)
+par(mfrow=c(3,1))
+
+# Land Area Plot
+land_df <- crime[order(crime$`Land Area`), ]
+
+barplot(land_df$`Land Area`, names.arg = land_df$`County Name`, xlab = "County", ylab = "Land Area in Sq. Miles", main = "Land Area for each County")
+
+# Total Population Plot
+pop_df <- crime[order(crime$`Total Pop.`), ]
+
+barplot(pop_df$`Total Pop.`, names.arg = pop_df$`County Name`, xlab = "County", ylab = "Total Population", main = "Total 1990 Population for each County")
+
+# Total Serious Crimes
+crime_df <- crime[order(crime$`Total Serious Crimes`), ]
+
+barplot(crime_df$`Total Serious Crimes`, names.arg = crime_df$`County Name`, xlab = "County", ylab = "Total Serious Crimes", main = "Total 1990 Serious Crimes for each County")
+
+dev.off()
+```
+
+As expected, all of these variables have an enormous spread spanning multiple orders of magnitude. In order to use these in regression models later, they'll have to be log-transformed.
+
+
+Now, before we move on to modeling, let's take a look at how some of the variables differ by region. 
+```{r}
+# Select variables
+selected_data <- subset(crime, select = -c(Id, `County Name`, State,`Land Area`, `Total Pop.`, `Total Serious Crimes`))
+d <- dim(selected_data)[2]
+#par(mfrow=c(ceiling(sqrt(d)), ceiling(sqrt(d))))
+#crime$`Geographic Region` <- as.factor(crime$`Geographic Region`)
+
+for(i in 1:(d-1)){
+  title_string <- paste("Box and Whisker of ", colnames(selected_data)[i], " by Region", sep = "")
+  #formula_string <- paste("Geographic Region ~ ", colnames(selected_data)[i], sep = "")
+  #plot_formula <- as.formula(formula_string)
+  
+  boxplot(selected_data[, i] ~ `Geographic Region`, data = selected_data, main=title_string,
+   xlab="Geographic Region", ylab=colnames(selected_data)[i])
+}
+```
+
+Now, let's gauge the relationship between our predictor variables, to see which are correlated.
+
+```{r}
+predictors <- crime[, 4:16]
+pairs(predictors, upper.panel = NULL, pch = 20)
+```
+
+Interestingly, it appears that population is heavily correlated with total serious crimes, meaning that a transformation of crimes per person should be near constant. If we plot Crimes Per Person, we see that the spread is restricted, however the variable is not constant, and actually has an approximately normal distribution, making it an appropriate regressor.
+
+```{r}
+jpeg("../figs/crimes_per_person.jpg", width = 1000, height = 1000)
+crime_per_person <- crime$`Total Serious Crimes`/crime$`Total Pop.`
+
+hist(crime_per_person, main = "Distribution of Crimes Per Person", xlab = "Crimes Per Person")
+dev.off()
+```
+
+
+<h1> Univariate Analysis  </h1>
+
+```{r}
+data<-read.table("../data/APPENC02.txt", sep="", header=FALSE)
+UNI<-2244
+set.seed(UNI)
+index <-sample(c(1:440))
+mydata<-data[index[1:250],]
+head(mydata)
+```
+
+```{r}
+ne <- mydata[mydata$V17 == 1, ]
+nc <- mydata[mydata$V17 == 2, ]
+s <- mydata[mydata$V17 == 3, ]
+w <- mydata[mydata$V17 == 4, ]
+nrow(ne)
+nrow(nc)
+nrow(s)
+nrow(w)
+```
+```{r}
+length(unique(mydata$V1)) # no duplicates
+```
+```{r}
+# import packages
+library(car)
+```
+
+V4: Land Area
+```{r}
+# visualize data 
+boxplot(log(V4)~V17, data = mydata)$stats # west has large land area
+```
+```{r}
+# test assumptions 
+hist(mydata$V4, breaks = 50) # not normal, right skewed
+leveneTest(V4~factor(V17), data = mydata) # significantly unequal variance
+# independence assumption is assumed to be true since other than counties which are bordering and may influence crime rates in the other, counties can be considered independent 
+```
+```{r}
+kruskal.test(V4~factor(V17), data = mydata) # significant
+```
+V5: Total population
+```{r}
+# test assumptions 
+hist(mydata$V5, breaks = 50) # not normal! 
+leveneTest(V4~factor(V17), data = mydata) # not equal variance
+```
+```{r}
+boxplot(V5~V17, data = mydata)$stats # ne has large population
+```
+
+```{r}
+kruskal.test(V5~factor(V17), data = mydata) # pop not significant
+```
+
+V6: Percent of population aged 18-34
+```{r}
+# test assumptions 
+hist(mydata$V6, breaks = 50) # fairly normal
+leveneTest(V6~factor(V17), data = mydata) # not equal variance, but it's probably fine since anova is robust to some difference in variance as long as its not too severe. I did anova and k-w to be safe
+var(s$V6)
+var(ne$V6)
+var(nc$V6)
+var(w$V6)
+```
+```{r}
+boxplot(V6~V17, data = mydata)$stats # pretty consistent percent young
+```
+```{r}
+summary(aov(V6~factor(V17), data = mydata)) # younger pop not significant
+```
+```{r}
+kruskal.test(V6~factor(V17), data = mydata) # again, not significant
+```
+
+V7: percent of population aged 65+
+```{r}
+# test assumptions 
+hist(mydata$V7, breaks = 50) # fairly normal
+leveneTest(V7~factor(V17), data = mydata) # huge imbalance in variance
+var(s$V7)
+var(ne$V7)
+var(nc$V7)
+var(w$V7)
+```
+```{r}
+boxplot(V7~V17, data = mydata)$stats # slightly higher older pop in ne
+```
+
+```{r}
+kruskal.test(V7~factor(V17), data = mydata) # pop not significant
+```
+
+V8: number of active physicians 
+```{r}
+# test assumptions 
+mydata$doctors_per_cap = mydata$V8/mydata$V5 # scale by population
+hist(mydata$doctors_per_cap, breaks = 50) # right skewed
+leveneTest(doctors_per_cap~factor(V17), data = mydata) # equal var
+```
+```{r}
+boxplot(doctors_per_cap~V17, data = mydata)$stats # slightly higher number of doctors in ne? 
+```
+```{r}
+kruskal.test(doctors_per_cap~factor(V17), data = mydata) # doctors per cap not significant
+```
+
+V9: number of hospital beds 
+```{r}
+# test assumptions 
+mydata$hospitals_per_cap = mydata$V9/mydata$V5
+
+hist(mydata$hospitals_per_cap, breaks = 50) # right skewed
+leveneTest(hospitals_per_cap~factor(V17), data = mydata) # unequal variance
+```
+```{r}
+boxplot(V9/V5~V17, data = mydata)$stats # pretty different between regions
+```
+```{r}
+kruskal.test(V9/V5~factor(V17), data = mydata) # number of hospital beds per capita is significant
+```
+
+V10: total serious crimes
+```{r}
+mydata$crimes_per_cap = mydata$V10/mydata$V5
+
+# test assumptions 
+hist(mydata$crimes_per_cap, breaks = 50) # fairly normal
+leveneTest(crimes_per_cap~factor(V17), data = mydata) # unequal variance, but might be ok for anova
+var(s$crimes_per_cap )
+var(ne$crimes_per_cap )
+var(nc$crimes_per_cap )
+var(w$crimes_per_cap)
+```
+```{r}
+boxplot(V10/V5~V17, data = mydata)$stats # very different between regions
+```
+
+```{r}
+summary(aov(V10/V5~factor(V17), data = mydata)) # number of crimes per capita is significant
+```
+```{r}
+kruskal.test(crimes_per_cap~V17, data = mydata) # pop not significant
+```
+
+V11: Percent high school graduates
+```{r}
+# test assumptions 
+hist(mydata$V11, breaks = 50) # slightly left skewed
+leveneTest(V11~factor(V17), data = mydata) # equal variance
+```
+```{r}
+boxplot(V11~V17, data = mydata)$stats # pretty different between regions
+```
+```{r}
+summary(aov(V11~factor(V17), data = mydata)) # high school education rate is significant
+```
+```{r}
+kruskal.test(V11~factor(V17), data = mydata)
+```
+
+V12: percent bachelor's degree
+```{r}
+# test assumptions 
+hist(mydata$V12, breaks = 50) # slightly right skewed
+leveneTest(V12~factor(V17), data = mydata) # equal variance
+```
+```{r}
+# could probably bin some of these 
+boxplot(V12~V17, data = mydata)$stats # ne and w have high education levels
+```
+```{r}
+summary(aov(V12~factor(V17), data = mydata)) # but college grads not significant
+```
+```{r}
+kruskal.test(V12~factor(V17), data = mydata)
+```
+
+V13: Percent below poverty level
+```{r}
+# test assumptions 
+hist(mydata$V13, breaks = 50) # very right skewed
+leveneTest(V13~factor(V17), data = mydata) # unequal variance 
+```
+```{r}
+boxplot(V13~V17, data = mydata)$stats # poverty level also very characteristic, could see if correlates with education 
+```
+
+```{r}
+kruskal.test(V13~V17, data = mydata) # % below poverty level significant
+```
+
+V14: percent unemployment 
+```{r}
+# test assumptions 
+hist(mydata$V14, breaks = 50) # slightly right skewed
+leveneTest(V14~factor(V17), data = mydata) # unequal variance
+```
+```{r}
+boxplot(V14~V17, data = mydata)$stats # percent unemployment almost significant
+
+summary(aov(V14~factor(V17), data = mydata)) 
+```
+```{r}
+kruskal.test(V14~V17, data = mydata) # unemployment is significant
+```
+
+V15: Per capita income
+```{r}
+# test assumptions 
+hist(mydata$V15, breaks = 50) # fairly normal
+leveneTest(V15~factor(V17), data = mydata) # not equal variance, but could be fine because anova is fairly robust to this 
+var(s$V15)
+var(ne$V15)
+var(nc$V15)
+var(w$V15)
+```
+```{r}
+boxplot(V15~V17, data = mydata)$stats 
+
+summary(aov(V15~factor(V17), data = mydata)) # per capita income is significant
+```
+```{r}
+kruskal.test(V15~V17, data = mydata) # per capita income is significant
+```
+
+V16: total personal income 
+```{r}
+# test assumptions 
+hist(mydata$V16, breaks = 50) # extremely right skeweed
+leveneTest(V16~factor(V17), data = mydata) # equal variance
+```
+```{r}
+boxplot(V16~V17, data = mydata)$stats
+```
+```{r}
+summary(aov(V16~factor(V17), data = mydata)) # total personal income is significant
+```
+
+```{r}
+kruskal.test(V16~V17, data = mydata) # total personal income is significant
+```
+
+
+<h1> Modeling  </h1>
+
+```{r}
+if (!require("dplyr")){
+  install.packages("dplyr")
+}
+
+if (!require("nnet")){
+  install.packages("nnet")
+}
+
+if (!require("ggplot2")){
+  install.packages("ggplot2")
+}
+
+if (!require("formattable")){
+  install.packages("formattable")
+}
+
+library(dplyr)
+library(nnet)
+library(formattable)
+library(ggplot2)
+```
+
+
+First, let's load the data.
+
+```{r}
+crime <- read.table("../data/APPENC02.txt", sep="", header=FALSE)
+UNI <- 2244
+set.seed(UNI)
+index <- sample(c(1:440))
+crime <- crime[index[1:250],]
+
+# Rename column names to reflect meaning
+column.names <- c("Id", "County Name", "State", "Land Area", "Total Pop.", "Percent of Pop. Age 18-34", "Percent of Pop. Age >= 65", "Num of Active Physicians", "Num of Hospital Beds", "Total Serious Crimes", "Percent High School Graduates", "Percent Bachelor's Degree", "Percent Below Poverty Level", "Percent Unemployment", "Per Capita Income", "Total personal income", "Geographic Region")
+
+colnames(crime) <- column.names
+
+# Add crimes per person as column
+crimes_per_person <- crime$`Total Serious Crimes`/crime$`Total Pop.`
+crime <- as.data.frame(cbind(crime, crimes_per_person))
+
+# Add hospital beds per person as column
+beds_per_person <- crime$`Num of Hospital Beds`/crime$`Total Pop.`
+crime <- as.data.frame(cbind(crime, beds_per_person))
+
+crime$`Geographic Region` <- as.factor(crime$`Geographic Region`) #Ensure our outcome variable is treated as a factor variable
+with(crime, levels(`Geographic Region`))
+
+head(crime)
+```
+
+Summary of data
+```{r}
+summary(crime)
+```
+
+
+
+```{r}
+# Plot crime per person
+crime_pop <- crime[order(crime$crimes_per_person), ]
+
+barplot(crime_pop$crimes_per_person, names.arg = crime_pop$`County Name`, xlab = "County", ylab = "Crimes Per Person", main = "Crimes Per Person for each County")
+```
+Now we can see we no longer need to log-transform total crime and population
+
+
+As found in our ANOVA tests, the following predictors have significant or near-significant differences between regions, at an alpha-level of 0.05. So, we can use these in our model.
+
+<h3> Significant </h3>
+* Land area
+* Number of hospital beds per capita
+* Number of serious crimes per capita
+* Percent high school graduates
+* Percent below poverty level
+* Per capita income
+* Personal income
+* Percent unemployment
+
+Next, lets split the data into training and testing, and 80/20 split.
+
+```{r}
+# Credit to https://stackoverflow.com/questions/17200114/how-to-split-data-into-training-testing-sets-using-sample-function
+train_index <- sample.int(n = nrow(crime), size = floor(.80*nrow(crime)), replace = F)
+train_crime <- crime[train_index, ]
+test_crime  <- crime[-train_index, ]
+
+print(dim(train_crime))
+print(dim(test_crime))
+```
+
+Rename output categories
+```{r}
+levels(crime$`Geographic Region`) <- c("Northeast", "North Central", "South", "West")
+```
+
+
+
+Now let's fit our Logistic Regression Model, log-transforming the variables that are exponentially-distributed.
+
+```{r}
+mod0 <- multinom(`Geographic Region` ~ log(`Land Area`) + beds_per_person + crimes_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Per Capita Income` + `Percent Unemployment`, data = train_crime)
+#summary(mod0)
+coefs <- as.data.frame(summary(mod0)$coefficients)
+std_errs <- as.data.frame(round(summary(mod0)$standard.errors, 7))
+formattable(coefs, align = c("l", rep("r", NCOL(coefs) - 1)))
+formattable(std_errs, align = c("l", rep("r", NCOL(std_errs) - 1)))
+```
+
+
+Let's see if we can judge the accuracy of this model on the training and testing datasets
+
+```{r}
+# Credit to https://datasciencebeginners.com/2018/12/20/multinomial-logistic-regression-using-r/
+
+# Predicting the values for train dataset
+train_crime$predicted <- predict(mod0, newdata = train_crime, "class")
+
+# Building classification table
+ctable_train <- table(train_crime$`Geographic Region`, train_crime$predicted)
+
+# Calculating accuracy - sum of diagonal elements divided by total obs
+train_acc <- round((sum(diag(ctable_train))/sum(ctable_train))*100,4)
+
+
+# Predicting the values for test dataset
+test_crime$predicted <- predict(mod0, newdata = test_crime, "class")
+
+# Building classification table
+ctable_test <- table(test_crime$`Geographic Region`, test_crime$predicted)
+
+# Calculating accuracy - sum of diagonal elements divided by total obs
+test_acc <- round((sum(diag(ctable_test))/sum(ctable_test))*100,4)
+
+print(paste("Training Accuracy: ", train_acc, "%", sep=""))
+print(paste("Testing Accuracy: ", test_acc, "%", sep=""))
+```
+
+While our accuracy is not incredibly high, we are performing much better than random, which with the 4 unbalanced classes we have, would not perform much better than 35%
+
+Histogram of output categories
+```{r}
+ggplot(crime, aes(x = `Geographic Region`)) +
+    geom_bar()
+
+# Get counts by region
+freq_table <- crime %>% group_by(`Geographic Region`) %>% tally()
+freq_table$n <- freq_table$n/(count(crime)[1,1])
+freq_table
+```
+
+
+Let's see which of our coefficients are significant.
+```{r}
+# Credit to https://stats.idre.ucla.edu/r/dae/multinomial-logistic-regression/
+
+z <- summary(mod0)$coefficients/summary(mod0)$standard.errors
+p <- as.data.frame((1 - pnorm(abs(z), 0, 1)) * 2) #testing if B_i = 0 vs. B_i /= 0
+z <- as.data.frame(z)
+
+formattable(z, align = c("l", rep("r", NCOL(z) - 1)))
+formattable(p, align = c("l", rep("r", NCOL(p) - 1)))
+```
+
+
+
+We can see that there is only one coefficients that is not significant at an alpha-level of 0.05: per capita income for level 4. Since these coefficients are in comparison to our baseline level of the Northeast, then this tells us that per capita income does not differ significantly between the west and the northeast in our data according to our model.
+
+Last thing we should do is view the exponentiated coefficients, and see what we can interpret from them:
+
+```{r}
+exp_coefs <- exp(summary(mod0)$coefficients)
+exp_coefs
+```
+
+This is very interesting to see. Although many of our coefficients were significant, many of there effects are extremely close to 1. As a reminder, the interpretation of a given coefficient Blj is that assuming that a region is either NE or region l, if we increase x_j by 1 and hold all other features fixed, the odds that the outcome is region j increases by a multiplicative factor of B_lj. Therefore, if B_lj is close to 1, the odds will not change by a large amount in response to a change in x_j.
+
+From this, we see that for Percent Unemployment and Per Capita Income, Land Area, Percent High School Graduates, Percent Below Poverty Level, these variables seem nearly inconsequential. But crimes per person and beds_per_person has tens of orders of magnitude more importance than all of the other variables, to the extent that the odds seem entirely determined by this feature.
+
+
+Let's do some Likelihood ratio tests to gauge the collective relevance of certain variables in our model. First, let's test a model only using crimes_per_person and beds_per_person vs. using all other variables
+```{r}
+mod_red <- multinom(`Geographic Region` ~ crimes_per_person + beds_per_person, data = train_crime)
+summary(mod_red)
+
+#LRT
+anova(mod_red, mod0, test="Chisq")
+```
+We can see that the full model, according to our test, better fits our data at any reasonable alpha-level. Now, let's try testing if per capita income has a coefficient of zero in our model.
+
+```{r}
+mod_red <- multinom(`Geographic Region` ~ log(`Land Area`) + crimes_per_person + beds_per_person + `Percent High School Graduates` + `Percent Below Poverty Level` + `Percent Unemployment`, data = train_crime)
+summary(mod_red)
+
+#LRT
+anova(mod_red, mod0, test="Chisq")
+```
+With an alpha-level of 0.05, we reject the null hypothesis that per capita income has a coefficient of zero in our model. So, we may keep all of these variables in our model, although some seem to add little relative weight to the model decision.
+
+
+
+
